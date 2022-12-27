@@ -7,6 +7,9 @@ scoreboard players set RandomBits _seasons 4
 function seasons:random
 scoreboard players operation UpdateRandom _seasons = Random _seasons
 
+# Debug:
+#scoreboard players set UpdateRandom _seasons 0
+
 execute if score Season _seasons matches 0 run function seasons:update_summer
 execute if score Season _seasons matches 1 run function seasons:update_fall
 execute if score Season _seasons matches 2 run function seasons:update_winter

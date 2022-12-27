@@ -10,3 +10,6 @@ scoreboard players operation Season _seasons = Day _seasons
 scoreboard players operation Season _seasons /= SeasonLength _seasons
 
 execute as @a at @s run function seasons:spread
+execute as @a at @s run function seasons:spread
+execute as @a at @s run function seasons:spread
+execute as @a at @s run function seasons:spread

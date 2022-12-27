@@ -1,3 +1,4 @@
+execute if block ~ ~ ~ snow[layers=1] run function seasons:set_spring_biome
 execute if block ~ ~ ~ snow[layers=1] run setblock ~ ~ ~ air
 execute if block ~ ~ ~ snow[layers=2] run setblock ~ ~ ~ snow[layers=1]
 execute if block ~ ~ ~ snow[layers=3] run setblock ~ ~ ~ snow[layers=2]

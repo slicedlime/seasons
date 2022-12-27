@@ -7,6 +7,7 @@
         "seasons:fall_early/forest",
         "seasons:fall_late/forest",
         "seasons:winter_bare/forest",
-        "seasons:winter_snowy/forest"
+        "seasons:winter_snowy/forest",
+        "seasons:winter_melting/forest"
     ]
 }
