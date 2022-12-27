@@ -1,0 +1,9 @@
+Design notes:
+- Vanilla-like updates
+  - The world changes at random and around the player
+  - The player should be in control of changing the world
+
+TODO:
+- Add winter-like biome for spring that has rain instead of snow
+- Only replace biome once snow is all melted
+- Melt snow quicker (run more random samples per tick)
