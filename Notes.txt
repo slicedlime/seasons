@@ -4,4 +4,9 @@ Design notes:
   - The player should be in control of changing the world
 
 TODO:
-- 
+- Fix melt in summer making spring biomes
+- Fall not melting snow?
+- Hide grass / plants under snow?
+- Crops being affected by seasons
+- Faster transition if further away from "right" season
+- Does ice melt in warm biomes?
