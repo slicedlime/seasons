@@ -1,0 +1,4 @@
+{
+    "condition": "weather_check",
+    "raining": true
+}

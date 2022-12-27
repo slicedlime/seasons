@@ -13,3 +13,5 @@ execute as @a at @s run function seasons:spread
 execute as @a at @s run function seasons:spread
 execute as @a at @s run function seasons:spread
 execute as @a at @s run function seasons:spread
+
+execute as @a at @s run function seasons:check_snowed_plants
