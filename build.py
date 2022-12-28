@@ -2,7 +2,7 @@ import json
 import os
 import os.path as path
 
-template_folder = 'data/seasons/functions/templates'
+template_folder = 'templates'
 output_folder = 'data/seasons/functions/generated'
 
 tag_file ='data/seasons/tags/blocks/snowable_plants.json'
