@@ -1,0 +1,16 @@
+execute if entity @s[nbt={data:{block:"grass"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ grass
+execute if entity @s[nbt={data:{block:"brown_mushroom"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ brown_mushroom
+execute if entity @s[nbt={data:{block:"red_mushroom"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ red_mushroom
+execute if entity @s[nbt={data:{block:"fern"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ fern
+execute if entity @s[nbt={data:{block:"dandelion"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ dandelion
+execute if entity @s[nbt={data:{block:"poppy"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ poppy
+execute if entity @s[nbt={data:{block:"blue_orchid"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ blue_orchid
+execute if entity @s[nbt={data:{block:"allium"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ allium
+execute if entity @s[nbt={data:{block:"azure_bluet"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ azure_bluet
+execute if entity @s[nbt={data:{block:"red_tulip"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ red_tulip
+execute if entity @s[nbt={data:{block:"orange_tulip"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ orange_tulip
+execute if entity @s[nbt={data:{block:"white_tulip"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ white_tulip
+execute if entity @s[nbt={data:{block:"pink_tulip"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ pink_tulip
+execute if entity @s[nbt={data:{block:"oxeye_daisy"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ oxeye_daisy
+execute if entity @s[nbt={data:{block:"cornflower"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ cornflower
+execute if entity @s[nbt={data:{block:"lily_of_the_valley"}}] run loot spawn ~ ~ ~ mine ~ ~ ~ lily_of_the_valley

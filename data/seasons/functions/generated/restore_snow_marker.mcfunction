@@ -1,0 +1,16 @@
+execute if entity @s[nbt={data:{block:"grass"}}] run setblock ~ ~ ~ grass
+execute if entity @s[nbt={data:{block:"brown_mushroom"}}] run setblock ~ ~ ~ brown_mushroom
+execute if entity @s[nbt={data:{block:"red_mushroom"}}] run setblock ~ ~ ~ red_mushroom
+execute if entity @s[nbt={data:{block:"fern"}}] run setblock ~ ~ ~ fern
+execute if entity @s[nbt={data:{block:"dandelion"}}] run setblock ~ ~ ~ dandelion
+execute if entity @s[nbt={data:{block:"poppy"}}] run setblock ~ ~ ~ poppy
+execute if entity @s[nbt={data:{block:"blue_orchid"}}] run setblock ~ ~ ~ blue_orchid
+execute if entity @s[nbt={data:{block:"allium"}}] run setblock ~ ~ ~ allium
+execute if entity @s[nbt={data:{block:"azure_bluet"}}] run setblock ~ ~ ~ azure_bluet
+execute if entity @s[nbt={data:{block:"red_tulip"}}] run setblock ~ ~ ~ red_tulip
+execute if entity @s[nbt={data:{block:"orange_tulip"}}] run setblock ~ ~ ~ orange_tulip
+execute if entity @s[nbt={data:{block:"white_tulip"}}] run setblock ~ ~ ~ white_tulip
+execute if entity @s[nbt={data:{block:"pink_tulip"}}] run setblock ~ ~ ~ pink_tulip
+execute if entity @s[nbt={data:{block:"oxeye_daisy"}}] run setblock ~ ~ ~ oxeye_daisy
+execute if entity @s[nbt={data:{block:"cornflower"}}] run setblock ~ ~ ~ cornflower
+execute if entity @s[nbt={data:{block:"lily_of_the_valley"}}] run setblock ~ ~ ~ lily_of_the_valley

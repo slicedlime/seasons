@@ -1,3 +1,3 @@
-execute if entity @s[nbt={data:{block:"grass"}}] run setblock ~ ~ ~ grass
+function seasons:generated/restore_snow_marker
 
 kill @s

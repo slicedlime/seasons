@@ -1,0 +1,16 @@
+execute if block ~ ~ ~ grass align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "grass"}, CustomName:'"Snowed grass"'}
+execute if block ~ ~ ~ brown_mushroom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "brown_mushroom"}, CustomName:'"Snowed brown_mushroom"'}
+execute if block ~ ~ ~ red_mushroom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "red_mushroom"}, CustomName:'"Snowed red_mushroom"'}
+execute if block ~ ~ ~ fern align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "fern"}, CustomName:'"Snowed fern"'}
+execute if block ~ ~ ~ dandelion align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "dandelion"}, CustomName:'"Snowed dandelion"'}
+execute if block ~ ~ ~ poppy align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "poppy"}, CustomName:'"Snowed poppy"'}
+execute if block ~ ~ ~ blue_orchid align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "blue_orchid"}, CustomName:'"Snowed blue_orchid"'}
+execute if block ~ ~ ~ allium align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "allium"}, CustomName:'"Snowed allium"'}
+execute if block ~ ~ ~ azure_bluet align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "azure_bluet"}, CustomName:'"Snowed azure_bluet"'}
+execute if block ~ ~ ~ red_tulip align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "red_tulip"}, CustomName:'"Snowed red_tulip"'}
+execute if block ~ ~ ~ orange_tulip align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "orange_tulip"}, CustomName:'"Snowed orange_tulip"'}
+execute if block ~ ~ ~ white_tulip align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "white_tulip"}, CustomName:'"Snowed white_tulip"'}
+execute if block ~ ~ ~ pink_tulip align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "pink_tulip"}, CustomName:'"Snowed pink_tulip"'}
+execute if block ~ ~ ~ oxeye_daisy align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "oxeye_daisy"}, CustomName:'"Snowed oxeye_daisy"'}
+execute if block ~ ~ ~ cornflower align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "cornflower"}, CustomName:'"Snowed cornflower"'}
+execute if block ~ ~ ~ lily_of_the_valley align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "lily_of_the_valley"}, CustomName:'"Snowed lily_of_the_valley"'}
