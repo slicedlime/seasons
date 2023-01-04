@@ -8,3 +8,47 @@ TODO:
 - Faster transition if further away from "right" season (skip?)
 - All the biomes!
 - All the plants!
+- lily pads vs ice?
+- Savanna: raining in summer, dry in winter
+- Snow for fall/spring in mountain biomes
+- Swamp grass splotching is hardcoded. Could probably try to mirror based on coordinates and several biomes? Worth it?
+
+Research notes:
+- Diff between beach & snowy beach: -.1 downfall, -0.75 temperature
+- Diff between taiga & snowy taiga: -.4 downfall, -0.75 temperature
+- Diff between plains & snowy plains: +.1 downfall, -0.8 temperature
+- Downfall: only used for internal calculations of grass/foliage color
+- Temperature cutoff for rain/snow: 0.15
+- Snow golems die temperature: 1.0
+- Above height 80, temperature is lowered by this amount: (noise*8 + y - 80) * 0.00125
+
+Conclusions:
+- "Vanilla winter" is .75 colder than summer
+- A vanilla winter biome in summer is not warm enough for snow golems to melt (good)
+- Snow can still exist in high altitude locations in rainy biomes
+  - should probably try to use this for snow arriving early on mountains
+  - Need to not melt snow in those locations!
+    - Idea: figure out bounds of formula above, use them for snowing in plants and melting stuff
+
+Colors:
+- Forest green: 59AE30
+  - rgb: 89, 174, 48
+  - hsv: 100, 72, 68
+- Fall forest: ABB55F
+  - rgb: 171, 181, 95
+  - hsv: 66, 47, 70
+- Winter bare: ADAF90
+  - rgb: 173, 175, 144
+  - hsv: 63, 17, 68
+- Winter snowy: F4FEFF
+  - rgb: 244, 254, 255
+  - hsv: 185, 4, 100
+- Spring: 6ABC47
+  - rgb: 106, 188, 71
+  - hsv: 102, 62, 73
+
+- Changes:
+  - Winter snowy always the same
+  - Fall: -34h, -25s
+  - Winter bare: -37h, -55s
+  - Spring: +2h, -10s
