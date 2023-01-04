@@ -2,7 +2,7 @@
     "replace": false,
     "values": [
         "minecraft:forest",
-        "seasons:summer_default/forest",
+        "seasons:summer/forest",
         "seasons:fall_early/forest",
         "seasons:fall_late/forest",
         "seasons:winter_bare/forest",
