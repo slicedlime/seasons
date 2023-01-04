@@ -5,7 +5,6 @@
         "seasons:spring_default/forest",
         "seasons:spring_flowering/forest",
         "seasons:summer_default/forest",
-        "seasons:summer_dry/forest",
         "seasons:winter_bare/forest",
         "seasons:winter_snowy/forest"
     ]
