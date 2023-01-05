@@ -30,10 +30,10 @@ Conclusions:
   - Need to not melt snow in those locations!
     - Idea: figure out bounds of formula above, use them for snowing in plants and melting stuff
 
-Colors:
-- Forest green: 59AE30
-  - rgb: 89, 174, 48
-  - hsv: 100, 72, 68
+Grass colors:
+- Forest green: 7AC05A
+  - rgb: 122, 192, 90
+  - hsv: 101, 53, 75
 - Fall forest: ABB55F
   - rgb: 171, 181, 95
   - hsv: 66, 47, 70
@@ -49,6 +49,35 @@ Colors:
 
 - Changes:
   - Winter snowy always the same
-  - Fall: -34h, -25s
-  - Winter bare: -37h, -55s
-  - Spring: +2h, -10s
+  - Fall: -35h, -25s, -5v
+  - Winter bare: -38h, -55s, -5v
+  - Spring: +1h, -10s
+
+Sky colors:
+- Summer: 79A6FF - 219, 52, 100
+- Fall: 9DB8EA - 219, 32, 91
+- Winter: A6B9DB - 219, 24, 85
+- Spring: 79A6FF - 219, 52, 100
+
+- Changes:
+  - Fall: -20s, -10v
+  - Winter: -28s, -15v
+
+Foliage colors:
+- Summer: 59AE30 - 100, 72, 68
+- Early fall: FFCF60 - 41, 62, 100
+- Late fall: 871C16 - 3, 83, 52
+- Spring: 78FF39 - 100, 77, 100
+
+- Changes:
+  - Early fall: -59h, -10s, +32v
+  - Late fall: -97h, +11s, -16v
+  - Spring: +5s, +32v
+
+Permanent foliage colors:
+- Flowering spring: FF8CAF
+- Bare winter: 7C6952
+- Snowy winter: FFFFFF
+
+Permanent grass color:
+- Snowy winter: F4FEFF
