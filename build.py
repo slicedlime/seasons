@@ -1,15 +1,20 @@
 import json
 import os
 import os.path as path
+import imageio.v3 as imageio
+import numpy.typing
 from colorsys import rgb_to_hsv, hsv_to_rgb
 
 template_folder = 'templates'
 output_folder = 'data/seasons/functions/generated'
 
-vanilla_biome_folder = 'vanilla/biomes'
+vanilla_biome_folder = 'vanilla/biome'
+vanilla_grass_texture = 'vanilla/grass.png'
+vanilla_foliage_texture = 'vanilla/foliage.png'
 
 tag_file = 'data/seasons/tags/blocks/snowable_plants.json'
 biome_tag_folder = 'data/seasons/tags/worldgen/biome'
+biome_folder = 'data/seasons/worldgen/biome'
 
 seasons = ['summer', 'fall', 'winter', 'spring']
 
@@ -36,7 +41,7 @@ spring_leaves = [0, 5, 32]
 # ???: Lukewarm ocean, swamp
 
 # Mapping of biomes from vanilla biomes per season
-# Default style: leaves shift colors, snowy winters, melting spring
+# default: leaves shift colors, snowy winters, melting spring
 # summer_rains: rain period in summer, dry all other seasons
 
 season_biomes = {
@@ -98,8 +103,8 @@ season_biomes = {
         'v_winter': ['savanna', 'windswept_savanna'],
         'style': 'summer_rains'
     },
-    'savanna_plateu': {
-        'v_winter': ['savanna_plateu'],
+    'savanna_plateau': {
+        'v_winter': ['savanna_plateau'],
         'style': 'summer_rains'
     },
     'taiga': {
@@ -130,11 +135,14 @@ for filename in os.listdir(template_folder):
         for value in values:
             file.write(template.replace('$plant', value))
 
+vanilla_grass_image = imageio.imread(vanilla_grass_texture)
+vanilla_foliage_image = imageio.imread(vanilla_foliage_texture)
+
 def union(*args) -> list:
-    list = []
+    result = []
     for l in args:
-        list.extend(l)
-    return list
+        result.extend(l)
+    return result
 
 def add_if_present(biomes: list, biome: dict, key: str):
     if key not in biome:
@@ -182,9 +190,56 @@ def create_tags(id, biome, winter_biomes):
     write_tag(f'non_winter/{id}', non_winter)
     write_tag(f'non_spring/{id}', non_spring)
 
-winter_biomes = []
+def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.NDArray) -> int:
+    product = downfall * temperature
+    x = int((1.0 - temperature) * 255.0)
+    y = int((1.0 - product) * 255.0)
+    if y >= colormap.shape[0] or x >= colormap.shape[1]:
+        return -65281
 
+    pixel = colormap[y, x]
+    return int(pixel[0] << 16) | int(pixel[1] << 8) | int(pixel[2])
+
+def load_biome(id: str):
+    filename = f'{vanilla_biome_folder}/{id}.json'
+    with open(filename, 'r') as file:
+        biome = json.load(file)
+    effects = biome['effects']
+    downfall = biome['downfall']
+    temperature = biome['temperature']
+    if 'grass_color' not in effects:
+        effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
+    if 'foliage_color' not in effects:
+        effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
+    return biome
+
+def get_first_template(biome, season):
+    key = f'v_{season}'
+    template = biome.get(key, None)
+    if isinstance(template, list):
+        return template[0]
+    return template
+
+def create_biomes(id: str, biome: dict):
+    type = biome.get('type', 'default')
+    summer_template = get_first_template(biome, 'summer')
+    
+    if summer_template is not None:
+        template = load_biome(summer_template)
+    else:
+        # Try to find a fallback and use as template
+        for season in seasons:
+            other_template = get_first_template(biome, season)
+            if other_template is not None:
+                template = load_biome(other_template)
+                # TODO: Transform that biome back to summer state
+
+    with open(f'{biome_folder}/summer/{id}.json', 'w') as file:
+        json.dump(template, file, indent=2)
+
+winter_biomes = []
 for id, biome in season_biomes.items():
     create_tags(id, biome, winter_biomes)
+    create_biomes(id, biome)
 
 write_tag(f'winter', winter_biomes)
