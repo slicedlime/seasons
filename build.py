@@ -111,7 +111,10 @@ season_biomes = {
     },
     'deep_ocean': {
         'v_winter': 'deep_cold_ocean',
-        'v_summer': 'deep_ocean'
+        'v_summer': 'deep_ocean',
+        'winter': {
+            'temperature': -0.3
+        }
     },
     'flower_forest': {
         'v_summer': 'flower_forest'
@@ -140,10 +143,10 @@ season_biomes = {
         'v_summer': 'old_growth_birch_forest'
     },
     'old_growth_pine_taiga': {
-        'v_summer': 'old_growth_pine_taiga'
+        'v_fall': 'old_growth_pine_taiga'
     },
     'old_growth_spruce_taiga': {
-        'v_summer': 'old_growth_spruce_taiga'
+        'v_fall': 'old_growth_spruce_taiga'
     },
     'plains': {
         'v_summer': ['plains', 'sunflower_plains'],
@@ -151,21 +154,24 @@ season_biomes = {
     },
     'savanna': {
         'v_winter': ['savanna', 'windswept_savanna'],
-        'style': 'summer_rains'
+        'type': 'summer_rains'
     },
     'savanna_plateau': {
         'v_winter': ['savanna_plateau'],
-        'style': 'summer_rains'
+        'type': 'summer_rains'
     },
     'taiga': {
         'v_summer': 'taiga',
-        'v_winter': 'snowy_taiga'
+        'v_winter': 'snowy_taiga',
+        'default': {
+            'temperature': 0.5
+        }
     },
     'stony_shore': {
-        'v_summer': 'stony_shore'
+        'v_fall': 'stony_shore'
     },
     'windswept_hills': {
-        'v_summer': ['windswept_forest', 'windswept_gravelly_hills', 'windswept_hills']
+        'v_spring': ['windswept_forest', 'windswept_gravelly_hills', 'windswept_hills']
     }
 }
 
@@ -334,6 +340,8 @@ def create_biomes(id: str, biome: dict):
                 remap(template, 'foliage_color', to_summer_foliage[type][season])
                 template['temperature'] += to_summer_temperature[type][season]
 
+    apply_overrides(template, biome, 'default')
+
     if type == 'default':
         summer = copy.deepcopy(template)
         update_precipitation(summer)
@@ -393,6 +401,8 @@ def create_biomes(id: str, biome: dict):
 
         winter_melting = copy.deepcopy(winter_snowy)
         winter_melting['temperature'] = template['temperature'] + spring_temperature
+        if 'spring' in biome and 'temperature' in biome['spring']:
+            winter_melting['temperature'] = biome['spring']['temperature']
         update_precipitation(winter_melting)
         if winter_melting['precipitation'] != 'rain':
             print(f'Warning: melting winter biome for {id} snows')
