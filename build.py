@@ -31,6 +31,7 @@ fall_grass = [-35, -25, -5]
 winter_grass = [-38, -55, -5]
 spring_grass = [1, -10, 0]
 
+# TODO: apply these!
 fall_sky = [0, -20, -10]
 winter_sky = [0, -28, -15]
 spring_sky = [0, 0, 0]
