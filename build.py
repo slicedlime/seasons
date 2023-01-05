@@ -11,6 +11,8 @@ vanilla_biome_folder = 'vanilla/biomes'
 tag_file = 'data/seasons/tags/blocks/snowable_plants.json'
 biome_tag_folder = 'data/seasons/tags/worldgen/biome'
 
+seasons = ['summer', 'fall', 'winter', 'spring']
+
 snowy_ground = 'F4FEFF'
 
 flowering_leaves = 'FF8CAF'
@@ -158,30 +160,31 @@ def write_tag(id: str, biomes: list):
     with open(f'{biome_tag_folder}/{id}.json', 'w') as file:
         json.dump(data, file, indent=4)
 
-winter_biomes = []
+def create_tags(id, biome, winter_biomes):
+    summer_list = [f'seasons:summer/{id}']
+    fall_list = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
+    winter_list = [f'seasons:winter_bare/{id}', f'seasons:winter_snowy/{id}']
+    spring_list = [f'seasons:winter_melting/{id}', f'seasons:spring_default/{id}', f'seasons:spring_flowering/{id}']
 
-for id, biome in season_biomes.items():
-    summer = [f'seasons:summer/{id}']
-    fall = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
-    winter = [f'seasons:winter_bare/{id}', f'seasons:winter_snowy/{id}']
-    spring = [f'seasons:winter_melting/{id}', f'seasons:spring_default/{id}', f'seasons:spring_flowering/{id}']
-
-    winter_biomes.extend(winter)
+    winter_biomes.extend(winter_list)
 
     vanilla = []
-    add_if_present(vanilla, biome, 'v_summer')
-    add_if_present(vanilla, biome, 'v_fall')
-    add_if_present(vanilla, biome, 'v_winter')
-    add_if_present(vanilla, biome, 'v_spring')
+    for season in seasons:
+        add_if_present(vanilla, biome, f'v_{season}')
 
-    non_summer = union(vanilla, fall, winter, spring)
-    non_fall = union(vanilla, summer, winter, spring)
-    non_winter = union(vanilla, summer, fall, spring)
-    non_spring = union(vanilla, summer, fall, winter)
+    non_summer = union(vanilla, fall_list, winter_list, spring_list)
+    non_fall = union(vanilla, summer_list, winter_list, spring_list)
+    non_winter = union(vanilla, summer_list, fall_list, spring_list)
+    non_spring = union(vanilla, summer_list, fall_list, winter_list)
 
     write_tag(f'non_summer/{id}', non_summer)
     write_tag(f'non_fall/{id}', non_fall)
     write_tag(f'non_winter/{id}', non_winter)
     write_tag(f'non_spring/{id}', non_spring)
+
+winter_biomes = []
+
+for id, biome in season_biomes.items():
+    create_tags(id, biome, winter_biomes)
 
 write_tag(f'winter', winter_biomes)
