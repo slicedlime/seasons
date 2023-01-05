@@ -1,11 +1,33 @@
 import json
 import os
 import os.path as path
+from colorsys import rgb_to_hsv, hsv_to_rgb
 
 template_folder = 'templates'
 output_folder = 'data/seasons/functions/generated'
 
-tag_file ='data/seasons/tags/blocks/snowable_plants.json'
+vanilla_biome_folder = 'vanilla/biomes'
+
+tag_file = 'data/seasons/tags/blocks/snowable_plants.json'
+biome_tag_folder = 'data/seasons/tags/worldgen/biome'
+
+snowy_ground = 'F4FEFF'
+
+flowering_leaves = 'FF8CAF'
+winter_branches = '7C6952'
+snowy_leaves = 'FFFFFF'
+
+fall_grass = [-35, -25, -5]
+winter_grass = [-38, -55, -5]
+spring_grass = [1, -10, 0]
+
+fall_sky = [0, -20, -10]
+winter_sky = [0, -28, -15]
+spring_sky = [0, 0, 0]
+
+early_fall_leaves = [-59, -10, 32]
+late_fall_leaves = [-97, 11, -16]
+spring_leaves = [0, 5, 32]
 
 # Permanently summer: warm_ocean, badlands, desert, eroded_badlands, jungle, sparse jungle, mangrove swamp, wooded_badlands
 # Permanently winter: frozen_peaks, ice_spikes, frozen_ocean, deep_frozen_ocean
@@ -106,3 +128,60 @@ for filename in os.listdir(template_folder):
         for value in values:
             file.write(template.replace('$plant', value))
 
+def union(*args) -> list:
+    list = []
+    for l in args:
+        list.extend(l)
+    return list
+
+def add_if_present(biomes: list, biome: dict, key: str):
+    if key not in biome:
+        return
+
+    entry = biome[key]
+    if isinstance(entry, list):
+        biomes.extend([f'minecraft:{x}' for x in entry])
+    else:
+        biomes.append(f'minecraft:{entry}')
+
+def hex_to_rgb(s: str) -> list:
+    r = s[0:2]
+    g = s[2:4]
+    b = s[4:6]
+    return [int(x, 16) for x in [r, g, b]]
+
+def write_tag(id: str, biomes: list):
+    data = {
+        'replace': False,
+        'values': biomes
+    }
+    with open(f'{biome_tag_folder}/{id}.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
+winter_biomes = []
+
+for id, biome in season_biomes.items():
+    summer = [f'seasons:summer/{id}']
+    fall = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
+    winter = [f'seasons:winter_bare/{id}', f'seasons:winter_snowy/{id}']
+    spring = [f'seasons:winter_melting/{id}', f'seasons:spring_default/{id}', f'seasons:spring_flowering/{id}']
+
+    winter_biomes.extend(winter)
+
+    vanilla = []
+    add_if_present(vanilla, biome, 'v_summer')
+    add_if_present(vanilla, biome, 'v_fall')
+    add_if_present(vanilla, biome, 'v_winter')
+    add_if_present(vanilla, biome, 'v_spring')
+
+    non_summer = union(vanilla, fall, winter, spring)
+    non_fall = union(vanilla, summer, winter, spring)
+    non_winter = union(vanilla, summer, fall, spring)
+    non_spring = union(vanilla, summer, fall, winter)
+
+    write_tag(f'non_summer/{id}', non_summer)
+    write_tag(f'non_fall/{id}', non_fall)
+    write_tag(f'non_winter/{id}', non_winter)
+    write_tag(f'non_spring/{id}', non_spring)
+
+write_tag(f'winter', winter_biomes)
