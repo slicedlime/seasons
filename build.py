@@ -1,3 +1,4 @@
+import copy
 import json
 import os
 import os.path as path
@@ -18,6 +19,8 @@ biome_folder = 'data/seasons/worldgen/biome'
 
 seasons = ['summer', 'fall', 'winter', 'spring']
 
+# Constants
+
 snowy_ground = 'F4FEFF'
 
 flowering_leaves = 'FF8CAF'
@@ -35,6 +38,50 @@ spring_sky = [0, 0, 0]
 early_fall_leaves = [-59, -10, 32]
 late_fall_leaves = [-97, 11, -16]
 spring_leaves = [0, 5, 32]
+
+fall_temperature = -0.4
+winter_temperature = -0.8
+spring_temperature = -0.3
+
+# Conversions
+to_summer_grass = {
+    'default': {
+        'fall': [-x for x in fall_grass],
+        'winter': [-x for x in winter_grass],
+        'spring': [-x for x in spring_grass]
+    },
+    'summer_rains': {
+        'fall': [0, 0, 0],
+        'winter': [0, 0, 0],
+        'spring': [0, 0, 0]
+    }
+}
+
+to_summer_foliage = {
+    'default': {
+        'fall': [-x for x in early_fall_leaves],
+        'winter': [0, 0, 0], # Assuming vanilla winter biome tint as summer
+        'spring': [-x for x in spring_leaves]
+    },
+    'summer_rains': {
+        'fall': [0, 0, 0],
+        'winter': [0, 0, 0],
+        'spring': [0, 0, 0]
+    }
+}
+
+to_summer_temperature = {
+    'default': {
+        'fall': -fall_temperature,
+        'winter': -winter_temperature,
+        'spring': -spring_temperature
+    },
+    'summer_rains': {
+        'fall': 0,
+        'winter': 0,
+        'spring': 0
+    }
+}
 
 # Permanently summer: warm_ocean, badlands, desert, eroded_badlands, jungle, sparse jungle, mangrove swamp, wooded_badlands
 # Permanently winter: frozen_peaks, ice_spikes, frozen_ocean, deep_frozen_ocean
@@ -54,7 +101,10 @@ season_biomes = {
     },
     'ocean': {
         'v_winter': 'cold_ocean',
-        'v_summer': 'ocean'
+        'v_summer': 'ocean',
+        'winter': {
+            'temperature': -0.3
+        }
     },
     'dark_forest': {
         'v_summer': 'dark_forest'
@@ -158,7 +208,7 @@ def hex_to_rgb(s: str) -> list:
     r = s[0:2]
     g = s[2:4]
     b = s[4:6]
-    return [int(x, 16) for x in [r, g, b]]
+    return tuple([int(x, 16) for x in [r, g, b]])
 
 def write_tag(id: str, biomes: list):
     data = {
@@ -190,6 +240,15 @@ def create_tags(id, biome, winter_biomes):
     write_tag(f'non_winter/{id}', non_winter)
     write_tag(f'non_spring/{id}', non_spring)
 
+def int_to_rgb(color: int) -> tuple:
+    r = (color >> 16) & 0xff
+    g = (color >> 8) & 0xff
+    b = color & 0xff
+    return r, g, b
+
+def rgb_to_int(r: int, g: int, b: int) -> int:
+    return ((int(r) & 0xff) << 16) | ((int(g) & 0xff) << 8) | (int(b) & 0xff)
+
 def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.NDArray) -> int:
     product = downfall * temperature
     x = int((1.0 - temperature) * 255.0)
@@ -198,7 +257,16 @@ def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.
         return -65281
 
     pixel = colormap[y, x]
-    return int(pixel[0] << 16) | int(pixel[1] << 8) | int(pixel[2])
+    return rgb_to_int(pixel[0], pixel[1], pixel[2])
+
+def remap_color(color: int, mapping: list) -> int:
+    r, g, b = int_to_rgb(color)
+    h, s, v = rgb_to_hsv(r, g, b)
+    h += mapping[0]
+    s += mapping[1]
+    v += mapping[2]
+    r, g, b = hsv_to_rgb(h, s, v)
+    return rgb_to_int(r, g, b)
 
 def load_biome(id: str):
     filename = f'{vanilla_biome_folder}/{id}.json'
@@ -220,22 +288,142 @@ def get_first_template(biome, season):
         return template[0]
     return template
 
+def remap(biome, key, mapping):
+    effects = biome['effects']
+    effects[key] = remap_color(effects[key], mapping)
+
+def set_color(biome, key, hex):
+    r, g, b = hex_to_rgb(hex)
+    effects = biome['effects']
+    effects[key] = rgb_to_int(r, g, b)
+
+def apply_overrides(biome_data, conversion, season):
+    if not season in conversion:
+        return
+    for key, item in conversion[season].items():
+        biome_data[key] = item
+
+def update_precipitation(biome):
+    if biome['precipitation'] == 'none':
+        return
+    temperature = biome['temperature']
+    if temperature < 0.15:
+        biome['precipitation'] = 'snow'
+    else:
+        biome['precipitation'] = 'rain'
+
+def write_biome(id, biome, season):
+    with open(f'{biome_folder}/{season}/{id}.json', 'w') as file:
+        json.dump(biome, file, indent=2)
+
 def create_biomes(id: str, biome: dict):
     type = biome.get('type', 'default')
-    summer_template = get_first_template(biome, 'summer')
+    templates = {}
+    for season in seasons:
+        templates[season] = get_first_template(biome, season)
     
-    if summer_template is not None:
-        template = load_biome(summer_template)
+    if templates['summer'] is not None:
+        template = load_biome(templates['summer'])
     else:
         # Try to find a fallback and use as template
         for season in seasons:
-            other_template = get_first_template(biome, season)
+            other_template = templates[season]
             if other_template is not None:
                 template = load_biome(other_template)
-                # TODO: Transform that biome back to summer state
+                remap(template, 'grass_color', to_summer_grass[type][season])
+                remap(template, 'foliage_color', to_summer_foliage[type][season])
+                template['temperature'] += to_summer_temperature[type][season]
 
-    with open(f'{biome_folder}/summer/{id}.json', 'w') as file:
-        json.dump(template, file, indent=2)
+    if type == 'default':
+        summer = copy.deepcopy(template)
+        update_precipitation(summer)
+        write_biome(id, summer, 'summer')
+
+        if templates['fall']:
+            fall_template = load_biome(templates['fall'])
+        else:
+            fall_template = None
+        
+        if fall_template:
+            fall_early = copy.deepcopy(fall_template)
+        else:
+            fall_early = copy.deepcopy(template)
+            fall_early['temperature'] += fall_temperature
+            remap(fall_early, 'grass_color', fall_grass)
+        # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
+        remap(fall_early, 'foliage_color', early_fall_leaves)
+        apply_overrides(fall_early, biome, 'fall')
+        update_precipitation(fall_early)
+        write_biome(id, fall_early, 'fall_early')
+
+        if fall_template:
+            fall_late = copy.deepcopy(fall_template)
+        else:
+            fall_late = copy.deepcopy(template)
+            fall_late['temperature'] += fall_temperature
+            remap(fall_late, 'grass_color', fall_grass)
+        # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
+        remap(fall_late, 'foliage_color', late_fall_leaves)
+        apply_overrides(fall_late, biome, 'fall')
+        update_precipitation(fall_late)
+        write_biome(id, fall_late, 'fall_late')
+
+        if templates['winter']:
+            winter_template = load_biome(templates['winter'])
+        else:
+            winter_template = None
+
+        if winter_template:
+            winter_bare = copy.deepcopy(winter_template)
+        else:
+            winter_bare = copy.deepcopy(template)
+            winter_bare['temperature'] += winter_temperature
+            remap(winter_bare, 'grass_color', winter_grass)
+        set_color(winter_bare, 'foliage_color', winter_branches)
+        apply_overrides(winter_bare, biome, 'winter')
+        update_precipitation(winter_bare)
+        if winter_bare['precipitation'] != 'snow':
+            print(f'Warning: winter biome for {id} doesnt snow')
+        write_biome(id, winter_bare, 'winter_bare')
+
+        winter_snowy = copy.deepcopy(winter_bare)
+        set_color(winter_snowy, 'grass_color', snowy_ground)
+        set_color(winter_snowy, 'foliage_color', snowy_leaves)
+        write_biome(id, winter_snowy, 'winter_snowy')
+
+        winter_melting = copy.deepcopy(winter_snowy)
+        winter_melting['temperature'] = template['temperature'] + spring_temperature
+        update_precipitation(winter_melting)
+        if winter_melting['precipitation'] != 'rain':
+            print(f'Warning: melting winter biome for {id} snows')
+        write_biome(id, winter_melting, 'winter_melting')
+
+        if templates['spring']:
+            spring_template = load_biome(templates['spring'])
+        else:
+            spring_template = None
+
+        if spring_template:
+            spring_default = copy.deepcopy(spring_template)
+        else:
+            spring_default = copy.deepcopy(template)
+            spring_default['temperature'] += spring_temperature
+        remap(spring_default, 'grass_color', spring_grass)
+        remap(spring_default, 'foliage_color', spring_leaves)
+        apply_overrides(spring_default, biome, 'spring')
+        update_precipitation(spring_default)
+        write_biome(id, spring_default, 'spring_default')
+
+        spring_flowering = copy.deepcopy(spring_default)
+        set_color(spring_flowering, 'foliage_color', flowering_leaves)
+        write_biome(id, spring_flowering, 'spring_flowering')
+
+    elif type == 'summer_rains':
+        # TODO
+        pass
+
+    else:
+        raise Exception('Unknown type')
 
 winter_biomes = []
 for id, biome in season_biomes.items():
