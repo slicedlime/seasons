@@ -45,32 +45,6 @@ winter_temperature = -0.8
 spring_temperature = -0.3
 
 # Conversions
-to_summer_grass = {
-    'default': {
-        'fall': [-x for x in fall_grass],
-        'winter': [-x for x in winter_grass],
-        'spring': [-x for x in spring_grass]
-    },
-    'summer_rains': {
-        'fall': [0, 0, 0],
-        'winter': [0, 0, 0],
-        'spring': [0, 0, 0]
-    }
-}
-
-to_summer_foliage = {
-    'default': {
-        'fall': [-x for x in early_fall_leaves],
-        'winter': [0, 0, 0], # Assuming vanilla winter biome tint as summer
-        'spring': [-x for x in spring_leaves]
-    },
-    'summer_rains': {
-        'fall': [0, 0, 0],
-        'winter': [0, 0, 0],
-        'spring': [0, 0, 0]
-    }
-}
-
 to_summer_temperature = {
     'default': {
         'fall': -fall_temperature,
