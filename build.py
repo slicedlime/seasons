@@ -231,9 +231,12 @@ def int_to_rgb(color: int) -> tuple:
     r = (color >> 16) & 0xff
     g = (color >> 8) & 0xff
     b = color & 0xff
-    return r, g, b
+    return r / 255.0, g / 255.0, b / 255.0
 
 def rgb_to_int(r: int, g: int, b: int) -> int:
+    r = r * 255
+    g = g * 255
+    b = b * 255
     return ((int(r) & 0xff) << 16) | ((int(g) & 0xff) << 8) | (int(b) & 0xff)
 
 def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.NDArray) -> int:
@@ -244,16 +247,19 @@ def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.
         return -65281
 
     pixel = colormap[y, x]
-    return rgb_to_int(pixel[0], pixel[1], pixel[2])
+    return rgb_to_int(pixel[0] / 255.0, pixel[1] / 255.0, pixel[2] / 255.0)
 
 def remap_color(color: int, mapping: list) -> int:
     r, g, b = int_to_rgb(color)
     h, s, v = rgb_to_hsv(r, g, b)
-    h += mapping[0]
-    s += mapping[1]
-    v += mapping[2]
+    print(f'Color {color}: {r}, {g}, {b} and {h}, {s}, {v}')
+    h += mapping[0] / 255.0
+    s += mapping[1] / 100.0
+    v += mapping[2] / 100.0
     r, g, b = hsv_to_rgb(h, s, v)
-    return rgb_to_int(r, g, b)
+    color = rgb_to_int(r, g, b)
+    print(f'Remapped to {color}: {r}, {g}, {b} and {h}, {s}, {v}')
+    return color
 
 def load_biome(id: str):
     filename = f'{vanilla_biome_folder}/{id}.json'
@@ -268,6 +274,8 @@ def set_default_colors(biome):
     temperature = biome['temperature']
     if 'grass_color' not in effects:
         effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
+        color = effects['grass_color']
+        print(f'Set default grass color for {temperature}, {downfall} as {color}')
     if 'foliage_color' not in effects:
         effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
 

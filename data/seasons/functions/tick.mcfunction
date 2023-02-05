@@ -9,9 +9,8 @@ scoreboard players operation Day _seasons %= YearLength _seasons
 scoreboard players operation Season _seasons = Day _seasons
 scoreboard players operation Season _seasons /= SeasonLength _seasons
 
-execute as @a at @s run function seasons:spread
-execute as @a at @s run function seasons:spread
-execute as @a at @s run function seasons:spread
-execute as @a at @s run function seasons:spread
+scoreboard players operation ToSpread _seasons = SpreadSpeed _seasons
+function seasons:spread_r
+scoreboard players reset ToSpread _seasons
 
 execute as @a at @s run function seasons:check_snowed_plants
