@@ -5,11 +5,9 @@ Design notes:
 
 TODO:
 - Crops being affected by seasons?
-- lily pads vs ice?
-- Savanna: raining in summer, dry in winter
 - Snow for fall/spring in mountain biomes
 - Swamp grass splotching is hardcoded. Could probably try to mirror based on coordinates and several biomes? Worth it?
-- Fix grass being turned to dirt under accumulated snow layers
+- lily pads vs ice?
 
 Research notes:
 - Diff between beach & snowy beach: -.1 downfall, -0.75 temperature

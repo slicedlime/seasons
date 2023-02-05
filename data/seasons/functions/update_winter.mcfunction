@@ -8,3 +8,4 @@ execute unless score Snow _seasons matches 1 if score UpdateRandom _seasons matc
 scoreboard players reset Snow _seasons
 
 execute if biome ~ ~ ~ #seasons:snowy if predicate seasons:is_snowing positioned ~ ~-1 ~ if block ~ ~ ~ #seasons:snowable_plants run function seasons:snow_on_plants
+execute if biome ~ ~ ~ #seasons:snowy positioned ~ ~-1 ~ if block ~ ~ ~ snow if block ~ ~-1 ~ grass_block align xyz positioned ~0.5 ~0.5 ~0.5 unless entity @e[type=marker,distance=..0.0001,tag=_seasons_snow] run function seasons:retain_snowy_grass
