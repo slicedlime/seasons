@@ -18,8 +18,8 @@
     "sky_color": 7254527,
     "water_color": 4159204,
     "water_fog_color": 329011,
-    "grass_color": 11452385,
-    "foliage_color": 4050493
+    "grass_color": 12564309,
+    "foliage_color": 11445290
   },
   "features": [
     [],
@@ -198,5 +198,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 2.4
+  "temperature": 2.0
 }

@@ -203,7 +203,7 @@ def write_tag(id: str, biomes: list):
     with open(f'{biome_tag_folder}/{id}.json', 'w') as file:
         json.dump(data, file, indent=4)
 
-def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list):
+def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list, snowy_biomes: list):
     summer_list = [f'seasons:summer/{id}']
     fall_list = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
     bare_winter_biome = f'seasons:winter_bare/{id}'
@@ -217,6 +217,10 @@ def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list):
     vanilla = []
     for season in seasons:
         add_if_present(vanilla, biome, f'v_{season}')
+    
+    type = biome.get('type', 'default')
+    if type == 'default':
+        snowy_biomes.extend(winter_list)
 
     non_summer = union(vanilla, fall_list, winter_list, melting_list, spring_list)
     non_fall = union(vanilla, summer_list, winter_list, melting_list, spring_list)
@@ -269,14 +273,13 @@ def load_biome(id: str):
     set_default_colors(biome)
     return biome
 
-def set_default_colors(biome):
+def set_default_colors(biome, override = False):
     effects = biome['effects']
     downfall = biome['downfall']
     temperature = biome['temperature']
-    if 'grass_color' not in effects:
+    if 'grass_color' not in effects or override:
         effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
-        color = effects['grass_color']
-    if 'foliage_color' not in effects:
+    if 'foliage_color' not in effects or override:
         effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
 
 def get_first_template(biome, season):
@@ -421,19 +424,31 @@ def create_biomes(id: str, biome: dict):
         write_biome(id, spring_flowering, 'spring_flowering')
 
     elif type == 'summer_rains':
-        # TODO
-        pass
+        dry = copy.deepcopy(template)
+        write_biome(id, dry, 'winter_bare')
+        write_biome(id, dry, 'winter_snowy')
+        write_biome(id, dry, 'winter_melting')
+        write_biome(id, dry, 'spring_default')
+        write_biome(id, dry, 'spring_flowering')
+        write_biome(id, dry, 'fall_early')
+        write_biome(id, dry, 'fall_late')
+        wet = copy.deepcopy(template)
+        wet['downfall'] = 0.75
+        set_default_colors(wet, True)
+        write_biome(id, wet, 'summer')
 
     else:
         raise Exception('Unknown type')
 
 winter_biomes = []
 bare_winter_biomes = []
+snowy_biomes = []
 for id, biome in season_biomes.items():
-    create_tags(id, biome, winter_biomes, bare_winter_biomes)
+    create_tags(id, biome, winter_biomes, bare_winter_biomes, snowy_biomes)
     create_biomes(id, biome)
 
 write_tag(f'winter', winter_biomes)
 write_tag(f'bare_winter', bare_winter_biomes)
+write_tag(f'snowy', snowy_biomes)
 
 instantiate_template('biome', season_biomes.keys())
