@@ -180,17 +180,21 @@ with open(tag_file) as file:
     data = json.load(file)
     values = data['values']
 
-for filename in os.listdir(template_folder):
-    template_path = path.join(template_folder, filename)
-    if not path.isfile(template_path):
-        continue
+def instantiate_template(type, values):
+    folder = template_folder + '/' + type
+    for filename in os.listdir(folder):
+        template_path = path.join(folder, filename)
+        if not path.isfile(template_path):
+            continue
 
-    with open(template_path) as file:
-        template = file.readline()
+        with open(template_path) as file:
+            template = file.read()
     
-    with open(path.join(output_folder, filename), 'w') as file:
-        for value in values:
-            file.write(template.replace('$plant', value))
+        with open(path.join(output_folder, filename), 'w') as file:
+            for value in values:
+                file.write(template.replace(f'${type}', value))
+
+instantiate_template('plant', values)
 
 vanilla_grass_image = imageio.imread(vanilla_grass_texture)
 vanilla_foliage_image = imageio.imread(vanilla_foliage_texture)
@@ -225,13 +229,15 @@ def write_tag(id: str, biomes: list):
     with open(f'{biome_tag_folder}/{id}.json', 'w') as file:
         json.dump(data, file, indent=4)
 
-def create_tags(id, biome, winter_biomes):
+def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list):
     summer_list = [f'seasons:summer/{id}']
     fall_list = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
-    winter_list = [f'seasons:winter_bare/{id}', f'seasons:winter_snowy/{id}']
+    bare_winter_biome = f'seasons:winter_bare/{id}'
+    winter_list = [bare_winter_biome, f'seasons:winter_snowy/{id}']
     spring_list = [f'seasons:winter_melting/{id}', f'seasons:spring_default/{id}', f'seasons:spring_flowering/{id}']
 
     winter_biomes.extend(winter_list)
+    bare_winter_biomes.append(bare_winter_biome)
 
     vanilla = []
     for season in seasons:
@@ -440,8 +446,12 @@ def create_biomes(id: str, biome: dict):
         raise Exception('Unknown type')
 
 winter_biomes = []
+bare_winter_biomes = []
 for id, biome in season_biomes.items():
-    create_tags(id, biome, winter_biomes)
+    create_tags(id, biome, winter_biomes, bare_winter_biomes)
     create_biomes(id, biome)
 
 write_tag(f'winter', winter_biomes)
+write_tag(f'bare_winter', bare_winter_biomes)
+
+instantiate_template('biome', season_biomes.keys())
