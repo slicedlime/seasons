@@ -2,11 +2,11 @@
     "replace": false,
     "values": [
         "minecraft:forest",
-        "seasons:spring_default/forest",
-        "seasons:winter_melting/forest",
-        "seasons:spring_flowering/forest",
         "seasons:summer/forest",
         "seasons:fall_early/forest",
-        "seasons:fall_late/forest"
+        "seasons:fall_late/forest",
+        "seasons:winter_melting/forest",
+        "seasons:spring_default/forest",
+        "seasons:spring_flowering/forest"
     ]
 }

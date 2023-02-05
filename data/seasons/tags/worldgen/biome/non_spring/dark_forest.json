@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:dark_forest",
+        "seasons:summer/dark_forest",
+        "seasons:fall_early/dark_forest",
+        "seasons:fall_late/dark_forest",
+        "seasons:winter_bare/dark_forest",
+        "seasons:winter_snowy/dark_forest",
+        "seasons:winter_melting/dark_forest"
+    ]
+}

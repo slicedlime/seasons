@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:old_growth_spruce_taiga",
+        "seasons:summer/old_growth_spruce_taiga",
+        "seasons:fall_early/old_growth_spruce_taiga",
+        "seasons:fall_late/old_growth_spruce_taiga",
+        "seasons:winter_melting/old_growth_spruce_taiga",
+        "seasons:spring_default/old_growth_spruce_taiga",
+        "seasons:spring_flowering/old_growth_spruce_taiga"
+    ]
+}

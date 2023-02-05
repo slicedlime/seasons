@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:savanna",
+        "minecraft:windswept_savanna",
+        "seasons:fall_early/savanna",
+        "seasons:fall_late/savanna",
+        "seasons:winter_bare/savanna",
+        "seasons:winter_snowy/savanna",
+        "seasons:winter_melting/savanna",
+        "seasons:spring_default/savanna",
+        "seasons:spring_flowering/savanna"
+    ]
+}

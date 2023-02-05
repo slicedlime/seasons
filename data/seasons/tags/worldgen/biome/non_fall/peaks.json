@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:stony_peaks",
+        "minecraft:jagged_peaks",
+        "seasons:summer/peaks",
+        "seasons:winter_bare/peaks",
+        "seasons:winter_snowy/peaks",
+        "seasons:winter_melting/peaks",
+        "seasons:spring_default/peaks",
+        "seasons:spring_flowering/peaks"
+    ]
+}

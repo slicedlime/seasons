@@ -1,0 +1,15 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:ocean",
+        "minecraft:cold_ocean",
+        "seasons:summer/ocean",
+        "seasons:fall_early/ocean",
+        "seasons:fall_late/ocean",
+        "seasons:winter_bare/ocean",
+        "seasons:winter_snowy/ocean",
+        "seasons:winter_melting/ocean",
+        "seasons:spring_default/ocean",
+        "seasons:spring_flowering/ocean"
+    ]
+}

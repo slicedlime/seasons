@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:taiga",
+        "minecraft:snowy_taiga",
+        "seasons:summer/taiga",
+        "seasons:fall_early/taiga",
+        "seasons:fall_late/taiga",
+        "seasons:winter_melting/taiga",
+        "seasons:spring_default/taiga",
+        "seasons:spring_flowering/taiga"
+    ]
+}

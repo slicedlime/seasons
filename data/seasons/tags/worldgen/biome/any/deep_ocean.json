@@ -1,0 +1,15 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:deep_ocean",
+        "minecraft:deep_cold_ocean",
+        "seasons:summer/deep_ocean",
+        "seasons:fall_early/deep_ocean",
+        "seasons:fall_late/deep_ocean",
+        "seasons:winter_bare/deep_ocean",
+        "seasons:winter_snowy/deep_ocean",
+        "seasons:winter_melting/deep_ocean",
+        "seasons:spring_default/deep_ocean",
+        "seasons:spring_flowering/deep_ocean"
+    ]
+}

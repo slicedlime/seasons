@@ -1,0 +1,15 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:beach",
+        "minecraft:snowy_beach",
+        "seasons:summer/beach",
+        "seasons:fall_early/beach",
+        "seasons:fall_late/beach",
+        "seasons:winter_bare/beach",
+        "seasons:winter_snowy/beach",
+        "seasons:winter_melting/beach",
+        "seasons:spring_default/beach",
+        "seasons:spring_flowering/beach"
+    ]
+}

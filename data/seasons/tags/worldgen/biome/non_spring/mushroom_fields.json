@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:mushroom_fields",
+        "seasons:summer/mushroom_fields",
+        "seasons:fall_early/mushroom_fields",
+        "seasons:fall_late/mushroom_fields",
+        "seasons:winter_bare/mushroom_fields",
+        "seasons:winter_snowy/mushroom_fields",
+        "seasons:winter_melting/mushroom_fields"
+    ]
+}

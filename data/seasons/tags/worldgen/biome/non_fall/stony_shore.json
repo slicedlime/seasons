@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:stony_shore",
+        "seasons:summer/stony_shore",
+        "seasons:winter_bare/stony_shore",
+        "seasons:winter_snowy/stony_shore",
+        "seasons:winter_melting/stony_shore",
+        "seasons:spring_default/stony_shore",
+        "seasons:spring_flowering/stony_shore"
+    ]
+}

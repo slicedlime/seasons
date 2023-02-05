@@ -21,11 +21,11 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.jungle_and_forest"
     },
+    "sky_color": 7972607,
     "water_color": 4159204,
     "water_fog_color": 329011,
-    "sky_color": 7972607,
-    "foliage_color": 7929657,
-    "grass_color": 6995015
+    "grass_color": 8700013,
+    "foliage_color": 8060729
   },
   "features": [
     [],
@@ -198,5 +198,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.7
+  "temperature": 0.39999999999999997
 }

@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:old_growth_birch_forest",
+        "seasons:summer/old_growth_birch_forest",
+        "seasons:fall_early/old_growth_birch_forest",
+        "seasons:fall_late/old_growth_birch_forest",
+        "seasons:winter_bare/old_growth_birch_forest",
+        "seasons:winter_snowy/old_growth_birch_forest",
+        "seasons:winter_melting/old_growth_birch_forest"
+    ]
+}

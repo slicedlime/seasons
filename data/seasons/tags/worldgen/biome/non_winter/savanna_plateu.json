@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:savanna_plateu",
+        "seasons:summer/savanna_plateu",
+        "seasons:fall_early/savanna_plateu",
+        "seasons:fall_late/savanna_plateu",
+        "seasons:winter_melting/savanna_plateu",
+        "seasons:spring_default/savanna_plateu",
+        "seasons:spring_flowering/savanna_plateu"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:flower_forest",
+        "seasons:summer/flower_forest",
+        "seasons:fall_early/flower_forest",
+        "seasons:fall_late/flower_forest",
+        "seasons:winter_bare/flower_forest",
+        "seasons:winter_snowy/flower_forest",
+        "seasons:winter_melting/flower_forest",
+        "seasons:spring_default/flower_forest",
+        "seasons:spring_flowering/flower_forest"
+    ]
+}

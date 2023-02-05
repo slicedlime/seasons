@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:meadow",
+        "seasons:summer/meadow",
+        "seasons:fall_early/meadow",
+        "seasons:fall_late/meadow",
+        "seasons:winter_bare/meadow",
+        "seasons:winter_snowy/meadow",
+        "seasons:winter_melting/meadow"
+    ]
+}

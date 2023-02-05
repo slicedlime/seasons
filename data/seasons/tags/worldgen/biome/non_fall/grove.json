@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:grove",
+        "seasons:summer/grove",
+        "seasons:winter_bare/grove",
+        "seasons:winter_snowy/grove",
+        "seasons:winter_melting/grove",
+        "seasons:spring_default/grove",
+        "seasons:spring_flowering/grove"
+    ]
+}

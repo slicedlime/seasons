@@ -1,0 +1,16 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:snowy_plains",
+        "seasons:summer/plains",
+        "seasons:fall_early/plains",
+        "seasons:fall_late/plains",
+        "seasons:winter_bare/plains",
+        "seasons:winter_snowy/plains",
+        "seasons:winter_melting/plains",
+        "seasons:spring_default/plains",
+        "seasons:spring_flowering/plains"
+    ]
+}

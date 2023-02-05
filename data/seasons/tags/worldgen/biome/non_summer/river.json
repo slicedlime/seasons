@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:river",
+        "minecraft:frozen_river",
+        "seasons:fall_early/river",
+        "seasons:fall_late/river",
+        "seasons:winter_bare/river",
+        "seasons:winter_snowy/river",
+        "seasons:winter_melting/river",
+        "seasons:spring_default/river",
+        "seasons:spring_flowering/river"
+    ]
+}

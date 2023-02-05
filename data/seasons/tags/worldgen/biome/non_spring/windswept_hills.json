@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:windswept_forest",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:windswept_hills",
+        "seasons:summer/windswept_hills",
+        "seasons:fall_early/windswept_hills",
+        "seasons:fall_late/windswept_hills",
+        "seasons:winter_bare/windswept_hills",
+        "seasons:winter_snowy/windswept_hills",
+        "seasons:winter_melting/windswept_hills"
+    ]
+}
