@@ -60,7 +60,7 @@ to_summer_temperature = {
 
 # Permanently summer: warm_ocean, badlands, desert, eroded_badlands, jungle, sparse jungle, mangrove swamp, wooded_badlands
 # Permanently winter: frozen_peaks, ice_spikes, frozen_ocean, deep_frozen_ocean
-# ???: Lukewarm ocean, swamp
+# ???: Lukewarm ocean, swamps
 
 # Mapping of biomes from vanilla biomes per season
 # default: leaves shift colors, snowy winters, melting spring
