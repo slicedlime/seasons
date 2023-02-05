@@ -1,4 +1,4 @@
 # Update biomes
-execute if score UpdateRandom _seasons matches 0 run fillbiome ~ -64 ~ ~ 319 ~ seasons:summer/forest replace #seasons:non_summer/forest
+execute if score UpdateRandom _seasons matches 0 run function seasons:generated/set_summer
 
 execute positioned ~ ~-1 ~ if block ~ ~ ~ #seasons:meltables run function seasons:melt
