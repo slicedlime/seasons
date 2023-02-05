@@ -31,7 +31,6 @@ fall_grass = [-25, -25, -5]
 winter_grass = [-27, -55, -5]
 spring_grass = [1, -10, 0]
 
-# TODO: apply these!
 fall_sky = [0, -20, -10]
 winter_sky = [0, -28, -15]
 spring_sky = [0, 0, 0]
@@ -357,6 +356,7 @@ def create_biomes(id: str, biome: dict):
             fall_early = copy.deepcopy(template)
             fall_early['temperature'] += fall_temperature
             remap(fall_early, 'grass_color', fall_grass)
+            remap(fall_early, 'sky_color', fall_sky)
         # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
         remap(fall_early, 'foliage_color', early_fall_leaves)
         apply_overrides(fall_early, biome, 'fall')
@@ -369,6 +369,7 @@ def create_biomes(id: str, biome: dict):
             fall_late = copy.deepcopy(template)
             fall_late['temperature'] += fall_temperature
             remap(fall_late, 'grass_color', fall_grass)
+            remap(fall_late, 'sky_color', fall_sky)
         # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
         remap(fall_late, 'foliage_color', late_fall_leaves)
         apply_overrides(fall_late, biome, 'fall')
@@ -386,6 +387,7 @@ def create_biomes(id: str, biome: dict):
             winter_bare = copy.deepcopy(template)
             winter_bare['temperature'] += winter_temperature
             remap(winter_bare, 'grass_color', winter_grass)
+            remap(winter_bare, 'sky_color', winter_sky)
         set_color(winter_bare, 'foliage_color', winter_branches)
         apply_overrides(winter_bare, biome, 'winter')
         update_precipitation(winter_bare)
@@ -418,6 +420,7 @@ def create_biomes(id: str, biome: dict):
             spring_default = copy.deepcopy(template)
             spring_default['temperature'] += spring_temperature
         remap(spring_default, 'grass_color', spring_grass)
+        remap(spring_default, 'sky_color', spring_sky)
         remap(spring_default, 'foliage_color', spring_leaves)
         apply_overrides(spring_default, biome, 'spring')
         update_precipitation(spring_default)
