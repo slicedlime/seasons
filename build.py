@@ -279,6 +279,10 @@ def load_biome(id: str):
     filename = f'{vanilla_biome_folder}/{id}.json'
     with open(filename, 'r') as file:
         biome = json.load(file)
+    set_default_colors(biome)
+    return biome
+
+def set_default_colors(biome):
     effects = biome['effects']
     downfall = biome['downfall']
     temperature = biome['temperature']
@@ -286,7 +290,6 @@ def load_biome(id: str):
         effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
     if 'foliage_color' not in effects:
         effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
-    return biome
 
 def get_first_template(biome, season):
     key = f'v_{season}'
@@ -337,9 +340,9 @@ def create_biomes(id: str, biome: dict):
             other_template = templates[season]
             if other_template is not None:
                 template = load_biome(other_template)
-                remap(template, 'grass_color', to_summer_grass[type][season])
-                remap(template, 'foliage_color', to_summer_foliage[type][season])
                 template['temperature'] += to_summer_temperature[type][season]
+                set_default_colors(template)
+                break
 
     apply_overrides(template, biome, 'default')
 
