@@ -27,8 +27,8 @@ flowering_leaves = 'FF8CAF'
 winter_branches = '7C6952'
 snowy_leaves = 'FFFFFF'
 
-fall_grass = [-35, -25, -5]
-winter_grass = [-38, -55, -5]
+fall_grass = [-25, -25, -5]
+winter_grass = [-27, -55, -5]
 spring_grass = [1, -10, 0]
 
 # TODO: apply these!
@@ -36,8 +36,8 @@ fall_sky = [0, -20, -10]
 winter_sky = [0, -28, -15]
 spring_sky = [0, 0, 0]
 
-early_fall_leaves = [-59, -10, 32]
-late_fall_leaves = [-97, 11, -16]
+early_fall_leaves = [-41, -10, 32]
+late_fall_leaves = [-69, 11, -16]
 spring_leaves = [0, 5, 32]
 
 fall_temperature = -0.4
@@ -262,6 +262,10 @@ def remap_color(color: int, mapping: list) -> int:
     h += mapping[0] / 255.0
     s += mapping[1] / 100.0
     v += mapping[2] / 100.0
+    if h > 1.0:
+        h -= 1.0
+    if h < 0:
+        h += 1.0
     r, g, b = hsv_to_rgb(h, s, v)
     color = rgb_to_int(r, g, b)
     return color
