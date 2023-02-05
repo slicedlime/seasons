@@ -252,13 +252,11 @@ def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.
 def remap_color(color: int, mapping: list) -> int:
     r, g, b = int_to_rgb(color)
     h, s, v = rgb_to_hsv(r, g, b)
-    print(f'Color {color}: {r}, {g}, {b} and {h}, {s}, {v}')
     h += mapping[0] / 255.0
     s += mapping[1] / 100.0
     v += mapping[2] / 100.0
     r, g, b = hsv_to_rgb(h, s, v)
     color = rgb_to_int(r, g, b)
-    print(f'Remapped to {color}: {r}, {g}, {b} and {h}, {s}, {v}')
     return color
 
 def load_biome(id: str):
@@ -275,7 +273,6 @@ def set_default_colors(biome):
     if 'grass_color' not in effects:
         effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
         color = effects['grass_color']
-        print(f'Set default grass color for {temperature}, {downfall} as {color}')
     if 'foliage_color' not in effects:
         effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
 
