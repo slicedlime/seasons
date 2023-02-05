@@ -1,17 +1,15 @@
 Design notes:
 - Vanilla-like updates
   - The world changes at random and around the player
-  - The player should be in control of changing the world
+  - The player should be in control of permanent changes to the world
 
 TODO:
-- Crops being affected by seasons
-- Faster transition if further away from "right" season (skip?)
-- All the biomes!
-- All the plants!
+- Crops being affected by seasons?
 - lily pads vs ice?
 - Savanna: raining in summer, dry in winter
 - Snow for fall/spring in mountain biomes
 - Swamp grass splotching is hardcoded. Could probably try to mirror based on coordinates and several biomes? Worth it?
+- Fix grass being turned to dirt under accumulated snow layers
 
 Research notes:
 - Diff between beach & snowy beach: -.1 downfall, -0.75 temperature
