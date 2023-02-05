@@ -193,7 +193,7 @@ def hex_to_rgb(s: str) -> list:
     r = s[0:2]
     g = s[2:4]
     b = s[4:6]
-    return tuple([int(x, 16) for x in [r, g, b]])
+    return tuple([int(x, 16) / 255.0 for x in [r, g, b]])
 
 def write_tag(id: str, biomes: list):
     data = {
@@ -221,11 +221,13 @@ def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list):
     non_fall = union(vanilla, summer_list, winter_list, spring_list)
     non_winter = union(vanilla, summer_list, fall_list, spring_list)
     non_spring = union(vanilla, summer_list, fall_list, winter_list)
+    any = union(vanilla, summer_list, fall_list, winter_list, spring_list)
 
     write_tag(f'non_summer/{id}', non_summer)
     write_tag(f'non_fall/{id}', non_fall)
     write_tag(f'non_winter/{id}', non_winter)
     write_tag(f'non_spring/{id}', non_spring)
+    write_tag(f'any/{id}', any)
 
 def int_to_rgb(color: int) -> tuple:
     r = (color >> 16) & 0xff
