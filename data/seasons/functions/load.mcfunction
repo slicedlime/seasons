@@ -1,8 +1,10 @@
 # On load
 
 scoreboard objectives add _seasons dummy "Seasons Data"
-scoreboard players set SeasonLength _seasons 20
+scoreboard players add SeasonLength _seasons 0
+execute if score SeasonLength _seasons matches 0 run scoreboard players set SeasonLength _seasons 20
 scoreboard players set SeasonCount _seasons 4
-scoreboard players set SpreadSpeed _seasons 4
+scoreboard players add SpreadSpeed _seasons 0
+execute if score SpreadSpeed _seasons matches 0 run scoreboard players set SpreadSpeed _seasons 4
 
 gamerule snowAccumulationHeight 8
