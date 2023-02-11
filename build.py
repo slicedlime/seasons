@@ -2,6 +2,7 @@ import copy
 import json
 import os
 import os.path as path
+import pathlib
 import imageio.v3 as imageio
 import numpy.typing
 from colorsys import rgb_to_hsv, hsv_to_rgb
@@ -168,6 +169,22 @@ def instantiate_template(type, values):
                 file.write(template.replace(f'${type}', value))
 
 instantiate_template('plant', values)
+
+def generate_move(template_name: str, max: int, delegate: str):
+    template_path = template_folder + '/move/' + template_name + '.mcfunction'
+    with open(template_path) as file:
+        template = file.read()
+    pathlib.Path(output_folder + '/move').mkdir(parents=True, exist_ok=True)
+
+    i = 1
+    while i <= max:
+        payload = f'function seasons:generated/move/{template_name}{int(i / 2)}'
+        if i == 1:
+            payload = delegate
+   
+        with open(path.join(output_folder, f'move/{template_name}{i}.mcfunction'), 'w') as file:
+            file.write(template.replace('$max', str(i)).replace('$payload', payload))
+        i *= 2
 
 vanilla_grass_image = imageio.imread(vanilla_grass_texture)
 vanilla_foliage_image = imageio.imread(vanilla_foliage_texture)
@@ -459,3 +476,6 @@ write_tag(f'bare_winter', bare_winter_biomes)
 write_tag(f'snowy', snowy_biomes)
 
 instantiate_template('biome', season_biomes.keys())
+
+generate_move('z', 64, 'function seasons:generated/move/x64')
+generate_move('x', 64, 'tp @s ~ ~ ~')
