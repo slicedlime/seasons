@@ -3,7 +3,7 @@
 scoreboard players set RandomBits _seasons 2
 function seasons:random
 scoreboard players operation SeasonRandom _seasons = Random _seasons
-scoreboard players set RandomBits _seasons 4
+scoreboard players set RandomBits _seasons 2
 function seasons:random
 scoreboard players operation UpdateRandom _seasons = Random _seasons
 

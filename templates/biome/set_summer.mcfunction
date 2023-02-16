@@ -1,1 +1,1 @@
-fillbiome ~ -64 ~ ~ 319 ~ seasons:summer/$biome replace #seasons:non_summer/$biome
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/$biome replace #seasons:non_summer/$biome

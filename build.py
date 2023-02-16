@@ -170,7 +170,7 @@ def instantiate_template(type, values):
 
 instantiate_template('plant', values)
 
-def generate_move(template_name: str, max: int, delegate: str):
+def generate_move(template_name: str, output_name: str, max: int, delegate: str):
     template_path = template_folder + '/move/' + template_name + '.mcfunction'
     with open(template_path) as file:
         template = file.read()
@@ -178,11 +178,11 @@ def generate_move(template_name: str, max: int, delegate: str):
 
     i = 1
     while i <= max:
-        payload = f'function seasons:generated/move/{template_name}{int(i / 2)}'
+        payload = f'function seasons:generated/move/{output_name}{int(i / 2)}'
         if i == 1:
             payload = delegate
    
-        with open(path.join(output_folder, f'move/{template_name}{i}.mcfunction'), 'w') as file:
+        with open(path.join(output_folder, f'move/{output_name}{i}.mcfunction'), 'w') as file:
             file.write(template.replace('$max', str(i)).replace('$payload', payload))
         i *= 2
 
@@ -477,5 +477,7 @@ write_tag(f'snowy', snowy_biomes)
 
 instantiate_template('biome', season_biomes.keys())
 
-generate_move('z', 64, 'function seasons:generated/move/x64')
-generate_move('x', 64, 'tp @s ~ ~ ~')
+generate_move('z', 'z', 64, 'function seasons:generated/move/x64')
+generate_move('x', 'x', 64, 'execute positioned ~ 319 ~ run function seasons:findsurface')
+generate_move('z', 'blocks_z', 64, 'function seasons:generated/move/blocks_x64')
+generate_move('x', 'blocks_x', 64, 'execute positioned ~ 319 ~ run function seasons:findsurface_blocks')

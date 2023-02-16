@@ -7,6 +7,6 @@ scoreboard players set SeasonCount _seasons 4
 scoreboard players add SpreadSpeed _seasons 0
 execute if score SpreadSpeed _seasons matches 0 run scoreboard players set SpreadSpeed _seasons 1
 scoreboard players add BlockSpeed _seasons 0
-execute if score BlockSpeed _seasons matches 0 run scoreboard players set BlockSpeed _seasons 16
+execute if score BlockSpeed _seasons matches 0 run scoreboard players set BlockSpeed _seasons 8
 
 gamerule snowAccumulationHeight 8
