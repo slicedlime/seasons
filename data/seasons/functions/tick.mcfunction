@@ -12,5 +12,8 @@ scoreboard players operation Season _seasons /= SeasonLength _seasons
 scoreboard players operation ToSpread _seasons = SpreadSpeed _seasons
 function seasons:spread_r
 scoreboard players reset ToSpread _seasons
+scoreboard players operation ToSpread _seasons = BlockSpeed _seasons
+function seasons:spread_blocks_r
+scoreboard players reset ToSpread _seasons
 
 execute as @a at @s run function seasons:check_snowed_plants
