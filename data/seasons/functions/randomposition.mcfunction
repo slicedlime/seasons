@@ -11,6 +11,6 @@ scoreboard players reset z _seasons
 scoreboard players reset branch _seasons
 
 execute at @s store success score spread _seasons run spreadplayers ~ ~ 0 1 false @s
-execute if score spread _seasons matches 0 positioned ~ 319 ~ run function seasons:findsurface
+execute if score spread _seasons matches 0 at @s positioned ~ 319 ~ run function seasons:findsurface
 scoreboard players reset spread _seasons
 scoreboard players reset Random _seasons
