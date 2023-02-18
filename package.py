@@ -19,4 +19,8 @@ def zip(zip_filename, folder, excludes = []):
                 print(f'{relative}')
                 zip.write(file_path, relative)
 
+try:
+    os.remove('seasons.zip')
+except OSError:
+    pass
 zip('seasons.zip', '.', ['templates', 'vanilla', 'build.py', 'CONTRIBUTING.md', 'Notes.txt', 'package.py', 'seasons.zip'])
