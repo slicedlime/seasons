@@ -24,8 +24,12 @@ new version of Minecraft. It currently works with Minecraft 1.19.3 (and no other
 To keep track of some things like plants buried in snow, the pack uses marker entities. This has
 no performance impact on the client, but may require a somewhat beefy server - or a computer that
 can handle the load when playing in Singleplayer. In multiplayer it also uses a lot of network
-traffic, so if you're playing in Multiplayer you'll need a good connection. This is likely to improve
-in future versions.
+traffic, so if you're playing in Multiplayer you'll need a very good connection. This is likely to
+improve in future versions.
+
+I do **not** recommend using this pack with ReplayMod. ReplayMod works by recording network
+traffic, which means the replay files produced when playing this pack are absolutely enormous.
+Again, this is likely to improve in future versions.
 
 It should work with mods like shaders and optimization mods, but is unlikely to work together with
 any mods that change world generation or any other datapacks that use experimental world generation
