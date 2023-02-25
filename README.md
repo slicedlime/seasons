@@ -22,8 +22,10 @@ vanilla biomes. Because those features are experimental, the pack is expected to
 new version of Minecraft. It currently works with Minecraft 1.19.3 (and no other known version).
 
 To keep track of some things like plants buried in snow, the pack uses marker entities. This has
-no performance impact on the client, but may require a somewhat beefy server to handle if played
-in multiplayer.
+no performance impact on the client, but may require a somewhat beefy server - or a computer that
+can handle the load when playing in Singleplayer. In multiplayer it also uses a lot of network
+traffic, so if you're playing in Multiplayer you'll need a good connection. This is likely to improve
+in future versions.
 
 It should work with mods like shaders and optimization mods, but is unlikely to work together with
 any mods that change world generation or any other datapacks that use experimental world generation
@@ -77,18 +79,3 @@ the Singleplayer Worlds list, then click the Open World Folder button.
 
 Once the pack has been copied, you will need to close the world if you have it open, and it should
 activate the next time the world is opened.
-
-## Developing
-
-If you want to develop your own modifications to the pack, you might need to modify and/or run the
-generator. This requires that you have python 3 installed, as well as libraries used:
-
-`pip3 install imageio`
-
-It requires some vanilla files to derive the default values from. Create a 'vanilla' folder and
-copy the default 'foliage.png' and 'grass.png' files from the vanilla resource pack into it. Then
-copy the entire 'worldgen/biome' folder from the vanilla data pack into the folder as 'biome'.
-
-Run the script without any arguments:
-
-`python build.py`
