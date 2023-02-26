@@ -458,6 +458,7 @@ def create_biomes(id: str, biome: dict):
         write_biome(id, dry, 'fall_late')
         wet = copy.deepcopy(template)
         wet['downfall'] = 0.75
+        wet['precipitation'] = 'rain'
         set_default_colors(wet, True)
         write_biome(id, wet, 'summer')
 
