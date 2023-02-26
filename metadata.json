@@ -1,0 +1,12 @@
+{
+    "title": "Seasons Data Pack",
+    "summary": "Adds Seasons functionality to vanilla Minecraft",
+    "github": "seasons",
+    "slicedlime": "seasons",
+    "package": "seasons.zip",
+    "source": ".",
+    "supports": [
+        "1.19.3"
+    ],
+    "beta": true
+}
