@@ -12,7 +12,8 @@ This is a datapack that adds seasonal shifts to vanilla Minecraft, made by slice
 - Snow and ice melts when winter has passed
 - Leaves turn green with patches of pink flowering leaves in spring
 - Sky colors shift slightly with seasons
-- Wet and dry seasons in the savanna - when the summer rain season hits, the savanna comes alive in vibrant green
+- Wet and dry seasons in the savanna - when the summer rain season hits, the savanna comes alive
+  in vibrant green
 - Fully server-side - Multiplayer compatible and does not require a resource pack
 
 ## Compatibility
@@ -20,12 +21,28 @@ This is a datapack that adds seasonal shifts to vanilla Minecraft, made by slice
 This datapack uses experimental world generation features to create seasonal variations of the
 vanilla biomes. Because those features are experimental, the pack is expected to break with every
 new version of Minecraft. It currently works with Minecraft 1.19.3 (and no other known version).
+In specific: it does **not** work with pre-release version of Minecraf 1.19.4.
 
-To keep track of some things like plants buried in snow, the pack uses marker entities. This has
-no performance impact on the client, but may require a somewhat beefy server - or a computer that
-can handle the load when playing in Singleplayer. In multiplayer it also uses a lot of network
-traffic, so if you're playing in Multiplayer you'll need a very good connection. This is likely to
-improve in future versions.
+This also means that levels with the pack on will show a warning screen for of it using
+experimental features.
+
+Never try to upgrade a world using this pack without first checking for a new, compatible version
+of the pack.
+
+### Performance
+
+To keep track of some things like plants buried in snow, the pack uses marker entities. Because of
+some inefficiencies in how commands work, it also runs a fair few commands to locate the world
+height and other necessary functions. This means it currently requires a pretty beefy computer to
+run, which is likely to change in future versions as they will be able to take advantage of new
+command functionality.
+
+The pack runs fully on the server side, so if you want to use it in Multiplayer, it will require a
+beefy server rather than a beefy client computer. In multiplayer it also uses a lot of network
+traffic, so if you're playing in Multiplayer you'll need a very good connection. This is also likely
+to improve in future versions.
+
+### Mods and Packs
 
 I do **not** recommend using this pack with ReplayMod. ReplayMod works by recording network
 traffic, which means the replay files produced when playing this pack are absolutely enormous.
@@ -35,7 +52,12 @@ It should work with mods like shaders and optimization mods, but is unlikely to 
 any mods that change world generation or any other datapacks that use experimental world generation
 features.
 
-Because the pack replaces biomes, it will also mess with commands like `locate biome`.
+### Commands
+
+Because the pack replaces biomes, it will also mess with commands like `locate biome`. It also uses
+the world time as the key for the season, so using commands like `time set <time>` will likely
+reset the current season to Summer. Use `time add` instead to modify current time. As a special
+case, `time add 20d` will fast-forward one season (using the default season lenght).
 
 ## Design Notes
 
@@ -82,4 +104,7 @@ datapacks folder of the world folder. If you don't know where this is, click to 
 the Singleplayer Worlds list, then click the Open World Folder button.
 
 Once the pack has been copied, you will need to close the world if you have it open, and it should
-activate the next time the world is opened.
+activate the next time the world is opened. On a server, you'll need to restart the server.
+
+Note: `reload` is not sufficient to activate the pack, since it will not reload experimental
+worldgen features.
