@@ -1,0 +1,17 @@
+name: seasons
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11
+  - imageio
+  # development env extras
+  - ipython>=8
+  - jupyterlab>=3
+  - black
+  - isort
+  - jupyterlab_code_formatter
+  - mypy
+  - pytest
+  - nbqa
+  - pip>=22
+  - pre-commit
