@@ -32,10 +32,24 @@ $ conda activate seasons
 
 ## Building
 
-Building the pack requires some vanilla files to derive the default values from. Create a 'vanilla' folder and
-copy the default 'foliage.png' and 'grass.png' files from the vanilla resource pack into it. Then
-copy the entire 'worldgen/biome' folder from the vanilla data pack into the folder as 'biome'.
+Building the pack requires some vanilla files to derive the default values from (as they are copyrighted
+parts of the official game they cannot be included in this repo).
 
-Run the script without any arguments:
+Start by Create a folder named 'vanilla'.
+
+Then find a copy of the default / vanilla resource pack and extract the files `foliage.pnmg` and `grass.png`
+from the `textures/colormap` folder and place them directly in the `vanilla` directory. These can be found
+within the minecraft assets, but versions of the vanilla resource pack are commonly available, and as these
+files change infrequently, it's not essential to have the most up-to-date version.
+
+Next you'll need to obtain the `biome` folder from the default data pack. The easiest way to obtain
+this is by extracting it directly from the Minecraft client JAR. **These files need to be from the same
+version you'll be using your datapack with!** Within the Minecraft JAR, the `biome` folder can be found
+within `data/minecraft/worlgen`. Extract the **entire folder** (including the `biome` folder itself) to
+the `vanilla` folder in this repo.
+
+Once you've obtained all the vanilla files and placed them in the right place,
+Run the build script without any arguments:
 
 `python build.py`
+
