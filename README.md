@@ -27,7 +27,8 @@ This also means that levels with the pack on will show a warning screen for of i
 experimental features.
 
 Never try to upgrade a world using this pack without first checking for a new, compatible version
-of the pack.
+of the pack. This pack is currently in beta stage of development. Using it on worlds you care
+about happens on your own risk.
 
 ### Performance
 
