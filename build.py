@@ -263,6 +263,7 @@ def rgb_to_int(r: int, g: int, b: int) -> int:
     return ((int(r) & 0xff) << 16) | ((int(g) & 0xff) << 8) | (int(b) & 0xff)
 
 def calculate_color(downfall: float, temperature: float, colormap: numpy.typing.NDArray) -> int:
+    temperature = max(temperature, 0.0)
     product = downfall * temperature
     x = int((1.0 - temperature) * 255.0)
     y = int((1.0 - product) * 255.0)
