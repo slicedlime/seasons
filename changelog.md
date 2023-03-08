@@ -1,1 +1,2 @@
-First beta release of the pack!
+- Fix purple ground in taiga biomes ([Contributed by ApolloDatapacks](https://github.com/slicedlime/seasons/pull/9))
+- Fix savanna-related errors in log on load ([Contributed by Alasofia](https://github.com/slicedlime/seasons/pull/2))
