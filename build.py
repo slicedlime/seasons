@@ -216,7 +216,9 @@ def write_tag(id: str, biomes: list):
         'replace': False,
         'values': biomes
     }
-    with open(f'{biome_tag_folder}/{id}.json', 'w') as file:
+    tag_filename = f'{biome_tag_folder}/{id}.json'
+    pathlib.Path(tag_filename).parent.mkdir(parents=True, exist_ok=True)
+    with open(tag_filename, 'w') as file:
         json.dump(data, file, indent=4)
 
 def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list, snowy_biomes: list):
@@ -335,7 +337,9 @@ def update_precipitation(biome):
         biome['precipitation'] = 'rain'
 
 def write_biome(id, biome, season):
-    with open(f'{biome_folder}/{season}/{id}.json', 'w') as file:
+    folder = f'{biome_folder}/{season}'
+    pathlib.Path(folder).mkdir(parents=True, exist_ok=True)
+    with open(f'{folder}/{id}.json', 'w') as file:
         json.dump(biome, file, indent=2)
 
 def create_biomes(id: str, biome: dict):
