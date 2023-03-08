@@ -1,6 +1,14 @@
 import os.path
 from zipfile import ZipFile
 
+def in_excluded_folder(file, excludes):
+    excluded_folders = [x for x in excludes if x[-1] == '/']
+    file = file.replace('\\', '/')
+    for folder in excluded_folders:
+        if file[:len(folder)] == folder:
+            return True
+    return False
+
 def zip(zip_filename, folder, excludes = []):
     with ZipFile(zip_filename, 'w') as zip:
         # Iterate over all the files in directory
@@ -13,7 +21,7 @@ def zip(zip_filename, folder, excludes = []):
                     continue
 
                 relative = os.path.relpath(file_path, folder)
-                if relative[0] == '.':
+                if relative[0] == '.' or in_excluded_folder(relative, excludes):
                     continue
                 # Add file to zip
                 print(f'{relative}')
@@ -23,4 +31,4 @@ try:
     os.remove('seasons.zip')
 except OSError:
     pass
-zip('seasons.zip', '.', ['templates', 'vanilla', 'build.py', 'CONTRIBUTING.md', 'Notes.txt', 'package.py', 'seasons.zip', 'square.jpg', 'square_400.jpg'])
+zip('seasons.zip', '.', ['templates/', 'vanilla/', 'build.py', 'CONTRIBUTING.md', 'Notes.txt', 'package.py', 'seasons.zip', 'credentials.json', 'metadata.json'])
