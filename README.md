@@ -30,6 +30,10 @@ Never try to upgrade a world using this pack without first checking for a new, c
 of the pack. This pack is currently in beta stage of development. Using it on worlds you care
 about happens on your own risk.
 
+There is also no way to safely remove the pack, so be sure you want to keep it when you install it
+(or do so on a copy of the world). Removing the pack will replace all biomes where it has been
+active with Plains.
+
 ### Performance
 
 To keep track of some things like plants buried in snow, the pack uses marker entities. Because of
