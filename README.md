@@ -20,8 +20,8 @@ This is a datapack that adds seasonal shifts to vanilla Minecraft, made by slice
 
 This datapack uses experimental world generation features to create seasonal variations of the
 vanilla biomes. Because those features are experimental, the pack is expected to break with every
-new version of Minecraft. It currently works with Minecraft 1.19.3 (and no other known version).
-In specific: it does **not** work with pre-release version of Minecraf 1.19.4.
+new version of Minecraft. It currently works with Minecraft 1.19.4+ (and no other known version).
+In specific: it does **not** work with 1.19.3 and before (all versions that use datapacks with version 10 or earlier).
 
 This also means that levels with the pack on will show a warning screen for of it using
 experimental features.
