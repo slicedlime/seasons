@@ -331,12 +331,10 @@ def update_precipitation(biome):
     if 'precipitation' in biome:
         biome.pop('precipitation')
     temperature = biome['temperature']
-    if temperature < 0.15:
-        # Snow precipitation
+    if temperature >= 2.0:
         biome['has_precipitation'] = False
-    else:
-        # Rain precipitation
-        biome['has_precipitation'] = True
+        return
+    biome['has_precipitation'] = True
 
 def write_biome(id, biome, season):
     folder = f'{biome_folder}/{season}'
@@ -363,7 +361,6 @@ def create_biomes(id: str, biome: dict):
                 break
 
     apply_overrides(template, biome, 'default')
-
     if type == 'default':
         summer = copy.deepcopy(template)
         update_precipitation(summer)
@@ -415,7 +412,7 @@ def create_biomes(id: str, biome: dict):
         set_color(winter_bare, 'foliage_color', winter_branches)
         apply_overrides(winter_bare, biome, 'winter')
         update_precipitation(winter_bare)
-        if winter_bare['has_precipitation']:
+        if winter_bare['temperature'] >= 0.15:
             print(f'Warning: winter biome for {id} doesnt snow')
         write_biome(id, winter_bare, 'winter_bare')
 
@@ -429,7 +426,7 @@ def create_biomes(id: str, biome: dict):
         if 'spring' in biome and 'temperature' in biome['spring']:
             winter_melting['temperature'] = biome['spring']['temperature']
         update_precipitation(winter_melting)
-        if not winter_melting['has_precipitation']:
+        if winter_melting['temperature'] < 0.15:
             print(f'Warning: melting winter biome for {id} snows')
         write_biome(id, winter_melting, 'winter_melting')
 
@@ -475,7 +472,9 @@ def create_biomes(id: str, biome: dict):
 winter_biomes = []
 bare_winter_biomes = []
 snowy_biomes = []
+i=0
 for id, biome in season_biomes.items():
+    i+=1
     create_tags(id, biome, winter_biomes, bare_winter_biomes, snowy_biomes)
     create_biomes(id, biome)
 
