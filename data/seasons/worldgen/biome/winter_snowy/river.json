@@ -180,5 +180,6 @@
       }
     ]
   },
-  "temperature": 0.0
+  "temperature": 0.0,
+  "precipitation": "snow"
 }

@@ -192,5 +192,6 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.19999999999999996
+  "temperature": 0.19999999999999996,
+  "precipitation": "rain"
 }
