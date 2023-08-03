@@ -327,15 +327,6 @@ def apply_overrides(biome_data, conversion, season):
     for key, item in conversion[season].items():
         biome_data[key] = item
 
-def update_precipitation(biome):
-    if biome['precipitation'] == 'none':
-        return
-    temperature = biome['temperature']
-    if temperature < 0.15:
-        biome['precipitation'] = 'snow'
-    else:
-        biome['precipitation'] = 'rain'
-
 def write_biome(id, biome, season):
     folder = f'{biome_folder}/{season}'
     pathlib.Path(folder).mkdir(parents=True, exist_ok=True)
@@ -364,7 +355,6 @@ def create_biomes(id: str, biome: dict):
 
     if type == 'default':
         summer = copy.deepcopy(template)
-        update_precipitation(summer)
         write_biome(id, summer, 'summer')
 
         if templates['fall']:
@@ -382,7 +372,6 @@ def create_biomes(id: str, biome: dict):
         # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
         remap(fall_early, 'foliage_color', early_fall_leaves)
         apply_overrides(fall_early, biome, 'fall')
-        update_precipitation(fall_early)
         write_biome(id, fall_early, 'fall_early')
 
         if fall_template:
@@ -395,7 +384,6 @@ def create_biomes(id: str, biome: dict):
         # Vanilla doesn't have fall colors, so just transform as if the template was summer regardless
         remap(fall_late, 'foliage_color', late_fall_leaves)
         apply_overrides(fall_late, biome, 'fall')
-        update_precipitation(fall_late)
         write_biome(id, fall_late, 'fall_late')
 
         if templates['winter']:
@@ -412,9 +400,6 @@ def create_biomes(id: str, biome: dict):
             remap(winter_bare, 'sky_color', winter_sky)
         set_color(winter_bare, 'foliage_color', winter_branches)
         apply_overrides(winter_bare, biome, 'winter')
-        update_precipitation(winter_bare)
-        if winter_bare['precipitation'] != 'snow':
-            print(f'Warning: winter biome for {id} doesnt snow')
         write_biome(id, winter_bare, 'winter_bare')
 
         winter_snowy = copy.deepcopy(winter_bare)
@@ -426,9 +411,6 @@ def create_biomes(id: str, biome: dict):
         winter_melting['temperature'] = template['temperature'] + spring_temperature
         if 'spring' in biome and 'temperature' in biome['spring']:
             winter_melting['temperature'] = biome['spring']['temperature']
-        update_precipitation(winter_melting)
-        if winter_melting['precipitation'] != 'rain':
-            print(f'Warning: melting winter biome for {id} snows')
         write_biome(id, winter_melting, 'winter_melting')
 
         if templates['spring']:
@@ -445,7 +427,6 @@ def create_biomes(id: str, biome: dict):
         remap(spring_default, 'sky_color', spring_sky)
         remap(spring_default, 'foliage_color', spring_leaves)
         apply_overrides(spring_default, biome, 'spring')
-        update_precipitation(spring_default)
         write_biome(id, spring_default, 'spring_default')
 
         spring_flowering = copy.deepcopy(spring_default)
@@ -463,7 +444,7 @@ def create_biomes(id: str, biome: dict):
         write_biome(id, dry, 'fall_late')
         wet = copy.deepcopy(template)
         wet['downfall'] = 0.75
-        wet['precipitation'] = 'rain'
+        wet['has_precipitation'] = True
         set_default_colors(wet, True)
         write_biome(id, wet, 'summer')
 
