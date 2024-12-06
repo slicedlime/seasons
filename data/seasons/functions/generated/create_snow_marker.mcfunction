@@ -1,4 +1,4 @@
-execute if block ~ ~ ~ grass align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "grass"}, CustomName:'"Snowed grass"'}
+execute if block ~ ~ ~ short_grass align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "short_grass"}, CustomName:'"Snowed short_grass"'}
 execute if block ~ ~ ~ brown_mushroom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "brown_mushroom"}, CustomName:'"Snowed brown_mushroom"'}
 execute if block ~ ~ ~ red_mushroom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "red_mushroom"}, CustomName:'"Snowed red_mushroom"'}
 execute if block ~ ~ ~ fern align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "fern"}, CustomName:'"Snowed fern"'}

@@ -1,4 +1,4 @@
-execute if entity @s[nbt={data:{block:"grass"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/grass
+execute if entity @s[nbt={data:{block:"short_grass"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/short_grass
 execute if entity @s[nbt={data:{block:"brown_mushroom"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/brown_mushroom
 execute if entity @s[nbt={data:{block:"red_mushroom"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/red_mushroom
 execute if entity @s[nbt={data:{block:"fern"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/fern

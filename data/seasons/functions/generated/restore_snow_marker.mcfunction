@@ -1,4 +1,4 @@
-execute if entity @s[nbt={data:{block:"grass"}}] run setblock ~ ~ ~ grass
+execute if entity @s[nbt={data:{block:"short_grass"}}] run setblock ~ ~ ~ short_grass
 execute if entity @s[nbt={data:{block:"brown_mushroom"}}] run setblock ~ ~ ~ brown_mushroom
 execute if entity @s[nbt={data:{block:"red_mushroom"}}] run setblock ~ ~ ~ red_mushroom
 execute if entity @s[nbt={data:{block:"fern"}}] run setblock ~ ~ ~ fern
