@@ -13,6 +13,7 @@ fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/mushroom_fields replace seaso
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/old_growth_birch_forest replace seasons:winter_snowy/old_growth_birch_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/old_growth_pine_taiga replace seasons:winter_snowy/old_growth_pine_taiga
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/old_growth_spruce_taiga replace seasons:winter_snowy/old_growth_spruce_taiga
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/pale_garden replace seasons:winter_snowy/pale_garden
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/plains replace seasons:winter_snowy/plains
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/savanna replace seasons:winter_snowy/savanna
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_melting/savanna_plateau replace seasons:winter_snowy/savanna_plateau

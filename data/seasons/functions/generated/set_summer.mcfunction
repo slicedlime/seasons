@@ -13,6 +13,7 @@ fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/mushroom_fields replace #seasons:non_
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/old_growth_birch_forest replace #seasons:non_summer/old_growth_birch_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/old_growth_pine_taiga replace #seasons:non_summer/old_growth_pine_taiga
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/old_growth_spruce_taiga replace #seasons:non_summer/old_growth_spruce_taiga
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/pale_garden replace #seasons:non_summer/pale_garden
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/plains replace #seasons:non_summer/plains
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/savanna replace #seasons:non_summer/savanna
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:summer/savanna_plateau replace #seasons:non_summer/savanna_plateau

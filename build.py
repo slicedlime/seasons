@@ -123,6 +123,9 @@ season_biomes = {
     'old_growth_spruce_taiga': {
         'v_fall': 'old_growth_spruce_taiga'
     },
+    'pale_garden': {
+        'v_fall': 'pale_garden'
+    },
     'plains': {
         'v_summer': ['plains', 'sunflower_plains'],
         'v_winter': 'snowy_plains'

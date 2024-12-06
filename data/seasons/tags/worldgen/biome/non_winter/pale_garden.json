@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:pale_garden",
+        "seasons:summer/pale_garden",
+        "seasons:fall_early/pale_garden",
+        "seasons:fall_late/pale_garden",
+        "seasons:winter_melting/pale_garden",
+        "seasons:spring_default/pale_garden",
+        "seasons:spring_flowering/pale_garden"
+    ]
+}

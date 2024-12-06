@@ -13,6 +13,7 @@ fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/mushroom_fields replace #seasons
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/old_growth_birch_forest replace #seasons:non_winter/old_growth_birch_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/old_growth_pine_taiga replace #seasons:non_winter/old_growth_pine_taiga
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/old_growth_spruce_taiga replace #seasons:non_winter/old_growth_spruce_taiga
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/pale_garden replace #seasons:non_winter/pale_garden
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/plains replace #seasons:non_winter/plains
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/savanna replace #seasons:non_winter/savanna
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/savanna_plateau replace #seasons:non_winter/savanna_plateau
