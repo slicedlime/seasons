@@ -1,11 +1,9 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
   "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
@@ -15,6 +13,7 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
+    "music_volume": 1.0,
     "sky_color": 8102911,
     "water_color": 4159204,
     "water_fog_color": 329011,
@@ -82,7 +81,6 @@
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
       "minecraft:seagrass_normal",
-      "minecraft:seagrass_simple",
       "minecraft:kelp_cold"
     ],
     [
