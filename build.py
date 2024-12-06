@@ -8,13 +8,13 @@ import numpy.typing
 from colorsys import rgb_to_hsv, hsv_to_rgb
 
 template_folder = 'templates'
-output_folder = 'data/seasons/functions/generated'
+output_folder = 'data/seasons/function/generated'
 
 vanilla_biome_folder = 'vanilla/biome'
 vanilla_grass_texture = 'vanilla/grass.png'
 vanilla_foliage_texture = 'vanilla/foliage.png'
 
-tag_file = 'data/seasons/tags/blocks/snowable_plants.json'
+tag_file = 'data/seasons/tags/block/snowable_plants.json'
 biome_tag_folder = 'data/seasons/tags/worldgen/biome'
 biome_folder = 'data/seasons/worldgen/biome'
 
