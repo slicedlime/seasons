@@ -9,6 +9,7 @@ TODO:
 - Swamp grass splotching is hardcoded. Could probably try to mirror based on coordinates and several biomes? Worth it?
 - lily pads vs ice?
 - Sea grass/kelp vs ice?
+- Snow on top of ice
 
 Research notes:
 - Diff between beach & snowy beach: -.1 downfall, -0.75 temperature
