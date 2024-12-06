@@ -106,7 +106,13 @@ season_biomes = {
     },
     'river': {
         'v_summer': 'river',
-        'v_winter': 'frozen_river'
+        'v_winter': 'frozen_river',
+        'fall': {
+            'temperature': 0.3
+        },
+        'spring': {
+            'temperature': 0.3
+        }
     },
     'grove': {
         'v_winter': 'grove'
