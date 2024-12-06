@@ -14,3 +14,5 @@ execute if entity @s[nbt={data:{block:"pink_tulip"}}] run setblock ~ ~ ~ pink_tu
 execute if entity @s[nbt={data:{block:"oxeye_daisy"}}] run setblock ~ ~ ~ oxeye_daisy
 execute if entity @s[nbt={data:{block:"cornflower"}}] run setblock ~ ~ ~ cornflower
 execute if entity @s[nbt={data:{block:"lily_of_the_valley"}}] run setblock ~ ~ ~ lily_of_the_valley
+execute if entity @s[nbt={data:{block:"closed_eyeblossom"}}] run setblock ~ ~ ~ closed_eyeblossom
+execute if entity @s[nbt={data:{block:"open_eyeblossom"}}] run setblock ~ ~ ~ open_eyeblossom

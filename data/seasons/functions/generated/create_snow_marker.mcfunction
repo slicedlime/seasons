@@ -14,3 +14,5 @@ execute if block ~ ~ ~ pink_tulip align zxy run summon marker ~0.5 ~0.5 ~0.5 {Ta
 execute if block ~ ~ ~ oxeye_daisy align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "oxeye_daisy"}, CustomName:'"Snowed oxeye_daisy"'}
 execute if block ~ ~ ~ cornflower align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "cornflower"}, CustomName:'"Snowed cornflower"'}
 execute if block ~ ~ ~ lily_of_the_valley align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "lily_of_the_valley"}, CustomName:'"Snowed lily_of_the_valley"'}
+execute if block ~ ~ ~ closed_eyeblossom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "closed_eyeblossom"}, CustomName:'"Snowed closed_eyeblossom"'}
+execute if block ~ ~ ~ open_eyeblossom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "open_eyeblossom"}, CustomName:'"Snowed open_eyeblossom"'}

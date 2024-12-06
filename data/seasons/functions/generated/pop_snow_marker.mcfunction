@@ -14,3 +14,5 @@ execute if entity @s[nbt={data:{block:"pink_tulip"}}] run loot spawn ~ ~ ~ loot 
 execute if entity @s[nbt={data:{block:"oxeye_daisy"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/oxeye_daisy
 execute if entity @s[nbt={data:{block:"cornflower"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/cornflower
 execute if entity @s[nbt={data:{block:"lily_of_the_valley"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/lily_of_the_valley
+execute if entity @s[nbt={data:{block:"closed_eyeblossom"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/closed_eyeblossom
+execute if entity @s[nbt={data:{block:"open_eyeblossom"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/open_eyeblossom
