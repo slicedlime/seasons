@@ -81,6 +81,9 @@ season_biomes = {
             'temperature': -0.3
         }
     },
+    'cherry_grove': {
+        'v_summer': 'cherry_grove'
+    },
     'dark_forest': {
         'v_summer': 'dark_forest'
     },

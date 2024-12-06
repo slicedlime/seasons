@@ -1,6 +1,7 @@
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/beach replace #seasons:non_winter/beach
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/birch_forest replace #seasons:non_winter/birch_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/ocean replace #seasons:non_winter/ocean
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/cherry_grove replace #seasons:non_winter/cherry_grove
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/dark_forest replace #seasons:non_winter/dark_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/deep_ocean replace #seasons:non_winter/deep_ocean
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:winter_bare/flower_forest replace #seasons:non_winter/flower_forest

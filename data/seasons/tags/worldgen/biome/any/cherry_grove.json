@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:cherry_grove",
+        "seasons:summer/cherry_grove",
+        "seasons:fall_early/cherry_grove",
+        "seasons:fall_late/cherry_grove",
+        "seasons:winter_bare/cherry_grove",
+        "seasons:winter_snowy/cherry_grove",
+        "seasons:winter_melting/cherry_grove",
+        "seasons:spring_default/cherry_grove",
+        "seasons:spring_flowering/cherry_grove"
+    ]
+}

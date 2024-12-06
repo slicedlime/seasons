@@ -1,6 +1,7 @@
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/beach replace #seasons:non_fall/beach
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/birch_forest replace #seasons:non_fall/birch_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/ocean replace #seasons:non_fall/ocean
+fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/cherry_grove replace #seasons:non_fall/cherry_grove
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/dark_forest replace #seasons:non_fall/dark_forest
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/deep_ocean replace #seasons:non_fall/deep_ocean
 fillbiome ~ -64 ~ ~3 319 ~3 seasons:fall_early/flower_forest replace #seasons:non_fall/flower_forest
