@@ -61,7 +61,7 @@ features.
 Because the pack replaces biomes, it will also mess with commands like `locate biome`. It also uses
 the world time as the key for the season, so using commands like `time set <time>` will likely
 reset the current season to Summer. Use `time add` instead to modify current time. As a special
-case, `time add 20d` will fast-forward one season (using the default season lenght).
+case, `time add 20d` will fast-forward one season (using the default season length).
 
 ## Design Notes
 
