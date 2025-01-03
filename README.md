@@ -29,24 +29,24 @@ Never try to upgrade a world using this pack without first checking for a new, c
 of the pack. This pack is currently in beta stage of development. Using it on worlds you care
 about happens on your own risk.
 
-There is also no way to safely remove the pack, so be sure you want to keep it when you install it
-(or do so on a copy of the world). Removing the pack will replace all biomes where it has been
+**There is also no way to safely remove the pack**, so be sure you want to keep it when you install
+it (or do so on a copy of the world). Removing the pack will replace all biomes where it has been
 active with Plains.
 
 ### Performance
 
-To keep track of some things like plants buried in snow, the pack uses marker entities. Because of
-some inefficiencies in how commands work, it also runs a fair few commands to locate the world
-height and other necessary functions. This means it currently requires a pretty beefy computer to
-run, which is likely to change in future versions as they will be able to take advantage of new
-command functionality.
+To keep track of some things like plants buried in snow, the pack uses marker entities. This means
+it currently requires a reasonably capable computer to run.
 
 The pack runs fully on the server side, so if you want to use it in Multiplayer, it will require a
-beefy server rather than a beefy client computer. In multiplayer it also uses a lot of network
-traffic, so if you're playing in Multiplayer you'll need a very good connection. This is also likely
-to improve in future versions.
+strong server rather than a strong client computer. In multiplayer it also adds some network traffic,
+so if you're playing in Multiplayer it will require a better network connection than the
+corresponding world would without it.
 
-### Mods and Packs
+Note that current versions of the pack are much more efficient than early versions were, both in
+terms of CPU usage and network traffic.
+
+### Mods and Other Packs
 
 The pack should work with mods like shaders and optimization mods, but is unlikely to work together
 with any mods that change world generation or any other datapacks that use experimental world
