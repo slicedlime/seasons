@@ -4,6 +4,7 @@ scoreboard players operation YearLength _seasons = SeasonLength _seasons
 scoreboard players operation YearLength _seasons *= SeasonCount _seasons
 
 execute store result score Day _seasons run time query day
+execute store result storage seasons:random range int 16 run scoreboard players get Range _seasons
 
 scoreboard players operation Day _seasons %= YearLength _seasons
 scoreboard players operation Season _seasons = Day _seasons

@@ -63,11 +63,24 @@ the world time as the key for the season, so using commands like `time set <time
 reset the current season to Summer. Use `time add` instead to modify current time. As a special
 case, `time add 20d` will fast-forward one season (using the default season length).
 
+## Settings
+
+You can modify the length of a a season, measured in in-game days (default: 20) with the following
+command:
+
+```mcfunction
+/scoreboard players set SeasonLength _seasons <days>
+```
+
+To set the simulation distance used by the pack (default 12 chunks), run the following command:
+```mcfunction
+/scoreboard players set Range _seasons <chunks>
+```
+
 ## Design Notes
 
 Each season is 20 in-game days as a compromise between the speed of seasons shifting and wanting
-to be able to experience each season for a while before it shifts again. To change the length of
-seasons, run `/scoreboard players set SeasonLength _seasons <days>` as an operator.
+to be able to experience each season for a while before it shifts again.
 
 Worlds always start in the summer, matching a normal Minecraft experience as much as possible -
 although this does mean snowy vanilla biomes will melt and turn to summer when encountered.
