@@ -48,13 +48,9 @@ to improve in future versions.
 
 ### Mods and Packs
 
-I do **not** recommend using this pack with ReplayMod. ReplayMod works by recording network
-traffic, which means the replay files produced when playing this pack are absolutely enormous.
-Again, this is likely to improve in future versions.
-
-It should work with mods like shaders and optimization mods, but is unlikely to work together with
-any mods that change world generation or any other datapacks that use experimental world generation
-features.
+The pack should work with mods like shaders and optimization mods, but is unlikely to work together
+with any mods that change world generation or any other datapacks that use experimental world
+generation features.
 
 ### Commands
 
