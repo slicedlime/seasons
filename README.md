@@ -77,6 +77,15 @@ To set the simulation distance used by the pack (default 12 chunks), run the fol
 /scoreboard players set Range _seasons <chunks>
 ```
 
+The number of season updates (full block column changing seasons - default: 1) and block updates
+(things like plants snowing in, snow melting, etc - default: 8) done per tick can be configured
+with the following:
+
+```mcfunction
+/scoreboard players set SpreadSpeed _seasons <count>
+/scoreboard players set BlockSpeed _seasons <count>
+```
+
 ## Design Notes
 
 Each season is 20 in-game days as a compromise between the speed of seasons shifting and wanting
