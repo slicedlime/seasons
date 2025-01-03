@@ -1,3 +1,6 @@
+# Version Beta 0.4
+- Fixed a bug causing ice spikes, frozen peaks and other similar permanent winter biomes to melt ([issue 15](https://github.com/slicedlime/seasons/issues/15))
+
 # Version Beta 0.3
 - Upgrade to Minecraft 1.21.4
 - Add support for the Pale Garden and Cherry Grove biomes

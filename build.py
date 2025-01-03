@@ -58,8 +58,6 @@ to_summer_temperature = {
     }
 }
 
-# Permanently summer: warm_ocean, badlands, desert, eroded_badlands, jungle, sparse jungle, mangrove swamp, wooded_badlands
-# Permanently winter: frozen_peaks, ice_spikes, frozen_ocean, deep_frozen_ocean
 # ???: Lukewarm ocean, swamps
 
 # Mapping of biomes from vanilla biomes per season
@@ -162,6 +160,27 @@ season_biomes = {
     }
 }
 
+# Always summer - should not get snow, leaves don't turn, etc
+always_summer_biomes = [
+    'warm_ocean',
+    'badlands',
+    'desert',
+    'eroded_badlands',
+    'jungle',
+    'sparse_jungle',
+    'mangrove_swamp',
+    'wooded_badlands'
+]
+
+# Always winter - snow and ice should never melt
+always_winter_biomes = [
+    'frozen_peaks',
+    'snowy_peaks',
+    'ice_spikes',
+    'frozen_ocean',
+    'deep_frozen_ocean'
+]
+
 with open(tag_file) as file:
     data = json.load(file)
     values = data['values']
@@ -217,7 +236,7 @@ def write_tag(id: str, biomes: list):
     with open(tag_filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list, snowy_biomes: list):
+def create_tags(id, biome, can_melt_biomes: list, bare_winter_biomes: list, snowy_biomes: list):
     summer_list = [f'seasons:summer/{id}']
     fall_list = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
     bare_winter_biome = f'seasons:winter_bare/{id}'
@@ -225,8 +244,11 @@ def create_tags(id, biome, winter_biomes: list, bare_winter_biomes: list, snowy_
     melting_list = [f'seasons:winter_melting/{id}']
     spring_list = [f'seasons:spring_default/{id}', f'seasons:spring_flowering/{id}']
 
-    winter_biomes.extend(winter_list)
     bare_winter_biomes.append(bare_winter_biome)
+    can_melt_biomes.extend(summer_list)
+    can_melt_biomes.extend(fall_list)
+    can_melt_biomes.extend(melting_list)
+    can_melt_biomes.extend(spring_list)
 
     vanilla = []
     for season in seasons:
@@ -447,14 +469,14 @@ def create_biomes(id: str, biome: dict):
     else:
         raise Exception('Unknown type')
 
-winter_biomes = []
+can_melt_biomes = [f'minecraft:{biome}' for biome in always_summer_biomes]
 bare_winter_biomes = []
 snowy_biomes = []
 for id, biome in season_biomes.items():
-    create_tags(id, biome, winter_biomes, bare_winter_biomes, snowy_biomes)
+    create_tags(id, biome, can_melt_biomes, bare_winter_biomes, snowy_biomes)
     create_biomes(id, biome)
 
-write_tag(f'winter', winter_biomes)
+write_tag(f'can_melt', can_melt_biomes)
 write_tag(f'bare_winter', bare_winter_biomes)
 write_tag(f'snowy', snowy_biomes)
 
