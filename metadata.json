@@ -10,7 +10,7 @@
     "package": "seasons.zip",
     "source": ".",
     "supports": [
-        "1.19.3"
+        "1.21.4"
     ],
     "beta": true
 }
