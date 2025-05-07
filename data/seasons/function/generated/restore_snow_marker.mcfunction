@@ -18,3 +18,5 @@ execute if entity @s[nbt={data:{block:"closed_eyeblossom"}}] run setblock ~ ~ ~ 
 execute if entity @s[nbt={data:{block:"open_eyeblossom"}}] run setblock ~ ~ ~ open_eyeblossom
 execute if entity @s[nbt={data:{block:"pale_moss_carpet"}}] run setblock ~ ~ ~ pale_moss_carpet
 execute if entity @s[nbt={data:{block:"leaf_litter"}}] run setblock ~ ~ ~ leaf_litter
+execute if entity @s[nbt={data:{block:"bush"}}] run setblock ~ ~ ~ bush
+execute if entity @s[nbt={data:{block:"firefly_bush"}}] run setblock ~ ~ ~ firefly_bush

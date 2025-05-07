@@ -18,3 +18,5 @@ execute if block ~ ~ ~ closed_eyeblossom align zxy run summon marker ~0.5 ~0.5 ~
 execute if block ~ ~ ~ open_eyeblossom align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "open_eyeblossom"}, CustomName:'"Snowed open_eyeblossom"'}
 execute if block ~ ~ ~ pale_moss_carpet align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "pale_moss_carpet"}, CustomName:'"Snowed pale_moss_carpet"'}
 execute if block ~ ~ ~ leaf_litter align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "leaf_litter"}, CustomName:'"Snowed leaf_litter"'}
+execute if block ~ ~ ~ bush align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "bush"}, CustomName:'"Snowed bush"'}
+execute if block ~ ~ ~ firefly_bush align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "firefly_bush"}, CustomName:'"Snowed firefly_bush"'}

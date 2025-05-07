@@ -18,3 +18,5 @@ execute if entity @s[nbt={data:{block:"closed_eyeblossom"}}] run loot spawn ~ ~ 
 execute if entity @s[nbt={data:{block:"open_eyeblossom"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/open_eyeblossom
 execute if entity @s[nbt={data:{block:"pale_moss_carpet"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/pale_moss_carpet
 execute if entity @s[nbt={data:{block:"leaf_litter"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/leaf_litter
+execute if entity @s[nbt={data:{block:"bush"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/bush
+execute if entity @s[nbt={data:{block:"firefly_bush"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/firefly_bush
