@@ -20,3 +20,6 @@ execute if entity @s[nbt={data:{block:"pale_moss_carpet"}}] run setblock ~ ~ ~ p
 execute if entity @s[nbt={data:{block:"leaf_litter"}}] run setblock ~ ~ ~ leaf_litter
 execute if entity @s[nbt={data:{block:"bush"}}] run setblock ~ ~ ~ bush
 execute if entity @s[nbt={data:{block:"firefly_bush"}}] run setblock ~ ~ ~ firefly_bush
+execute if entity @s[nbt={data:{block:"short_dry_grass"}}] run setblock ~ ~ ~ short_dry_grass
+execute if entity @s[nbt={data:{block:"tall_dry_grass"}}] run setblock ~ ~ ~ tall_dry_grass
+execute if entity @s[nbt={data:{block:"wildflowers"}}] run setblock ~ ~ ~ wildflowers
