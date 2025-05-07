@@ -20,3 +20,6 @@ execute if block ~ ~ ~ pale_moss_carpet align zxy run summon marker ~0.5 ~0.5 ~0
 execute if block ~ ~ ~ leaf_litter align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "leaf_litter"}, CustomName:'"Snowed leaf_litter"'}
 execute if block ~ ~ ~ bush align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "bush"}, CustomName:'"Snowed bush"'}
 execute if block ~ ~ ~ firefly_bush align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "firefly_bush"}, CustomName:'"Snowed firefly_bush"'}
+execute if block ~ ~ ~ short_dry_grass align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "short_dry_grass"}, CustomName:'"Snowed short_dry_grass"'}
+execute if block ~ ~ ~ tall_dry_grass align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "tall_dry_grass"}, CustomName:'"Snowed tall_dry_grass"'}
+execute if block ~ ~ ~ wildflowers align zxy run summon marker ~0.5 ~0.5 ~0.5 {Tags:["_seasons_snow","_seasons_new_snow"], data: {block: "wildflowers"}, CustomName:'"Snowed wildflowers"'}

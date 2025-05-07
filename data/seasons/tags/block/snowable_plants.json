@@ -21,6 +21,9 @@
         "pale_moss_carpet",
         "leaf_litter",
         "bush",
-        "firefly_bush"
+        "firefly_bush",
+        "short_dry_grass",
+        "tall_dry_grass",
+        "wildflowers"
     ]
 }

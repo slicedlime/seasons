@@ -20,3 +20,6 @@ execute if entity @s[nbt={data:{block:"pale_moss_carpet"}}] run loot spawn ~ ~ ~
 execute if entity @s[nbt={data:{block:"leaf_litter"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/leaf_litter
 execute if entity @s[nbt={data:{block:"bush"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/bush
 execute if entity @s[nbt={data:{block:"firefly_bush"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/firefly_bush
+execute if entity @s[nbt={data:{block:"short_dry_grass"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/short_dry_grass
+execute if entity @s[nbt={data:{block:"tall_dry_grass"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/tall_dry_grass
+execute if entity @s[nbt={data:{block:"wildflowers"}}] run loot spawn ~ ~ ~ loot minecraft:blocks/wildflowers
