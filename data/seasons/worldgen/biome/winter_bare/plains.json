@@ -7,6 +7,7 @@
   "creature_spawn_probability": 0.07,
   "downfall": 0.5,
   "effects": {
+    "dry_foliage_color": 8153426,
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
