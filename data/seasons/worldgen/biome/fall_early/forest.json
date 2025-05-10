@@ -29,7 +29,8 @@
     "water_color": 4159204,
     "water_fog_color": 329011,
     "grass_color": 11383680,
-    "foliage_color": 16765280
+    "foliage_color": 16765280,
+    "dry_foliage_color": 16765280
   },
   "features": [
     [],
@@ -85,7 +86,7 @@
     [
       "minecraft:glow_lichen",
       "minecraft:forest_flowers",
-      "minecraft:trees_birch_and_oak",
+      "minecraft:trees_birch_and_oak_leaf_litter",
       "minecraft:flower_default",
       "minecraft:patch_grass_forest",
       "minecraft:brown_mushroom_normal",
