@@ -1,4 +1,4 @@
-Version Beta 0.5
+# Version Beta 0.5
 - Added 1.21.5 compatibility
 - Added support for Animal Vaients
     - Cold is currently Fall_Late/Winter
