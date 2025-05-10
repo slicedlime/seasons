@@ -29,7 +29,8 @@
     "music_volume": 1.0,
     "sky_color": 8102911,
     "water_color": 6141935,
-    "water_fog_color": 6141935
+    "water_fog_color": 6141935,
+    "dry_foliage_color": 10580296
   },
   "features": [
     [],

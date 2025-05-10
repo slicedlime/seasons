@@ -13,6 +13,7 @@ output_folder = 'data/seasons/function/generated'
 vanilla_biome_folder = 'vanilla/biome'
 vanilla_grass_texture = 'vanilla/grass.png'
 vanilla_foliage_texture = 'vanilla/foliage.png'
+vanilla_dry_foliage_texture = 'vanilla/dry_foliage.png'
 
 tag_file = 'data/seasons/tags/block/snowable_plants.json'
 biome_tag_folder = 'data/seasons/tags/worldgen/biome'
@@ -203,6 +204,7 @@ instantiate_template('plant', values)
 
 vanilla_grass_image = imageio.imread(vanilla_grass_texture)
 vanilla_foliage_image = imageio.imread(vanilla_foliage_texture)
+vanilla_dry_foliage_image = imageio.imread(vanilla_dry_foliage_texture)
 
 def union(*args) -> list:
     result = []
@@ -322,6 +324,8 @@ def set_default_colors(biome, override = False):
         effects['grass_color'] = calculate_color(downfall, temperature, vanilla_grass_image)
     if 'foliage_color' not in effects or override:
         effects['foliage_color'] = calculate_color(downfall, temperature, vanilla_foliage_image)
+    if 'dry_foliage_color' not in effects or override:
+        effects['dry_foliage_color'] = calculate_color(downfall, temperature, vanilla_dry_foliage_image)
 
 def get_first_template(biome, season):
     key = f'v_{season}'
