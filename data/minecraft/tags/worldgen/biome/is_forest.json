@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#seasons:any/forest",
+    "#seasons:any/flower_forest",
+    "#seasons:any/birch_forest",
+    "#seasons:any/old_growth_birch_forest",
+    "#seasons:any/dark_forest",
+    "#seasons:any/pale_garden",
+    "#seasons:any/grove"
+  ]
+}

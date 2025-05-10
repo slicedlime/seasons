@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#seasons:any/savanna",
+    "#seasons:any/savanna_plateau"
+  ]
+}

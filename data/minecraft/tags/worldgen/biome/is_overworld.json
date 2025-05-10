@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#seasons:is_summer",
+    "#seasons:is_spring",
+    "#seasons:is_winter",
+    "#seasons:is_fall"
+  ]
+}

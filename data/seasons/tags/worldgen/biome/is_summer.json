@@ -1,0 +1,28 @@
+{
+    "replace": false,
+    "values": [
+        "seasons:summer/beach",
+        "seasons:summer/birch_forest",
+        "seasons:summer/ocean",
+        "seasons:summer/cherry_grove",
+        "seasons:summer/dark_forest",
+        "seasons:summer/deep_ocean",
+        "seasons:summer/flower_forest",
+        "seasons:summer/forest",
+        "seasons:summer/peaks",
+        "seasons:summer/river",
+        "seasons:summer/grove",
+        "seasons:summer/meadow",
+        "seasons:summer/mushroom_fields",
+        "seasons:summer/old_growth_birch_forest",
+        "seasons:summer/old_growth_pine_taiga",
+        "seasons:summer/old_growth_spruce_taiga",
+        "seasons:summer/pale_garden",
+        "seasons:summer/plains",
+        "seasons:summer/savanna",
+        "seasons:summer/savanna_plateau",
+        "seasons:summer/taiga",
+        "seasons:summer/stony_shore",
+        "seasons:summer/windswept_hills"
+    ]
+}

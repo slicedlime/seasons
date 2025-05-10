@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#seasons:any/meadow",
+    "#seasons:any/peaks",
+    "#seasons:any/cherry_grove"
+  ]
+}

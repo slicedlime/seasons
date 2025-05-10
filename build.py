@@ -238,7 +238,7 @@ def write_tag(id: str, biomes: list):
     with open(tag_filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-def create_tags(id, biome, can_melt_biomes: list, bare_winter_biomes: list, snowy_biomes: list):
+def create_tags(id, biome, can_melt_biomes: list, bare_winter_biomes: list, snowy_biomes: list, all_summer_biomes: list, all_spring_biomes: list, all_winter_biomes: list, all_fall_biomes: list):
     summer_list = [f'seasons:summer/{id}']
     fall_list = [f'seasons:fall_early/{id}', f'seasons:fall_late/{id}']
     bare_winter_biome = f'seasons:winter_bare/{id}'
@@ -251,6 +251,11 @@ def create_tags(id, biome, can_melt_biomes: list, bare_winter_biomes: list, snow
     can_melt_biomes.extend(fall_list)
     can_melt_biomes.extend(melting_list)
     can_melt_biomes.extend(spring_list)
+
+    all_summer_biomes.extend(summer_list)
+    all_spring_biomes.extend(spring_list)
+    all_winter_biomes.extend(winter_list)
+    all_fall_biomes.extend(fall_list)
 
     vanilla = []
     for season in seasons:
@@ -476,12 +481,21 @@ def create_biomes(id: str, biome: dict):
 can_melt_biomes = [f'minecraft:{biome}' for biome in always_summer_biomes]
 bare_winter_biomes = []
 snowy_biomes = []
+all_summer_biomes = []
+all_spring_biomes = []
+all_winter_biomes = []
+all_fall_biomes = []
 for id, biome in season_biomes.items():
-    create_tags(id, biome, can_melt_biomes, bare_winter_biomes, snowy_biomes)
+    create_tags(id, biome, can_melt_biomes, bare_winter_biomes, snowy_biomes, all_summer_biomes, all_spring_biomes, all_winter_biomes, all_fall_biomes)
     create_biomes(id, biome)
 
 write_tag(f'can_melt', can_melt_biomes)
 write_tag(f'bare_winter', bare_winter_biomes)
 write_tag(f'snowy', snowy_biomes)
+
+write_tag(f'is_summer', all_summer_biomes)
+write_tag(f'is_spring', all_spring_biomes)
+write_tag(f'is_winter', all_winter_biomes)
+write_tag(f'is_fall', all_fall_biomes)
 
 instantiate_template('biome', season_biomes.keys())
