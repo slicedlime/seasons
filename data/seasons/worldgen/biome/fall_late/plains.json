@@ -6,6 +6,7 @@
   ],
   "downfall": 0.4,
   "effects": {
+    "dry_foliage_color": 8525099,
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
