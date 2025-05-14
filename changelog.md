@@ -1,2 +1,8 @@
-- Fixed a bug causing ice spikes, frozen peaks and other similar permanent winter biomes to melt ([issue 15](https://github.com/slicedlime/seasons/issues/15))
-- Added an option to change the simulation distance used by the pack
+- Update pack to 1.21.5
+  - All season biomes now have shifting dry foliage colors
+  - Bushes can now be snowed in
+- Fix issue causing snowed in plants popping off randomly (issue #31)
+- Fix issue with snow in bare winter biomes never melting
+- Added support for mob variants spawning
+- Fix issue with map contours not working in season biomes
+- Snow golems now melt in non-winter season biomes
